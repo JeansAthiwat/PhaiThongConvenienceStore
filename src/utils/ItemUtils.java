@@ -1,6 +1,6 @@
 package utils;
 
-import store.Item;
+import logic.store.Item;
 
 import java.util.ArrayList;
 

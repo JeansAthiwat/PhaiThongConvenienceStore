@@ -1,6 +1,6 @@
-package store;
+package logic.store;
 
-import customer.BasicMember;
+import logic.member.BasicMember;
 
 import java.util.ArrayList;
 

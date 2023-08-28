@@ -1,4 +1,4 @@
-package store;
+package logic.store;
 
 import java.util.Objects;
 
