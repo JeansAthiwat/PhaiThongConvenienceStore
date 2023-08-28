@@ -15,7 +15,6 @@ public class IO {
 
     public IO() {
         home();
-
     }
 
     public static void home() {
