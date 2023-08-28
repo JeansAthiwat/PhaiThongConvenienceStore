@@ -29,10 +29,10 @@ public class Store {
         this.getMembers().add(new BasicMember("Peet", 123456));
         this.getMembers().add(new BasicMember("Beer", 77777));
 
-        this.getStock().add(new Item("Jelly Beans",100, 50));
-        this.getStock().add(new Item("Painkiller",200, 5));
-        this.getStock().add(new Item("Orange",150, 10));
-        this.getStock().add(new Item("Coconut Milk",300, 30));
+        this.getStock().add(new Item("Jelly Beans", 100, 50));
+        this.getStock().add(new Item("Painkiller", 200, 5));
+        this.getStock().add(new Item("Orange", 150, 10));
+        this.getStock().add(new Item("Coconut Milk", 300, 30));
         this.setStoreMoney(storeMoney);
     }
 
@@ -57,6 +57,19 @@ public class Store {
 
     public ArrayList<Item> getStock() {
         return stock;
+    }
+
+    public void addItemToStock(Item newItem) {
+        if (isInStock(newItem)) {
+            for (Item item : this.getStock()) {
+                if (item.equals(newItem)) {
+                    item.setAmount(item.getAmount() + newItem.getAmount());
+                    break;
+                }
+            }
+        } else {
+            this.getStock().add(newItem);
+        }
     }
 
     public ArrayList<BasicMember> getMembers() {

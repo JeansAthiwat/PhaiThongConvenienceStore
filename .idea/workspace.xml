@@ -7,9 +7,8 @@
     <list default="true" id="d6b7f155-9b74-478e-936d-f650e46dd787" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/member/FundamentalMintMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/FundamentalMintMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/member/PhaiThongCasanovaMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/PhaiThongCasanovaMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/member/StarvingStudentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/StarvingStudentMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/app/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/store/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/store/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/IO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +53,26 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="application.Main" />
+      <module name="PhaiThongConvenienceStore" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -62,7 +81,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1693232113734</updated>
-      <workItem from="1693232114771" duration="9640000" />
+      <workItem from="1693232114771" duration="15187000" />
     </task>
     <servers />
   </component>
