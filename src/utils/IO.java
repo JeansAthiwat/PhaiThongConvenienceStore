@@ -1,6 +1,8 @@
 package utils;
 
 import logic.app.AppController;
+import logic.member.BasicMember;
+import logic.member.FundamentalMintMember;
 import logic.store.Item;
 
 import java.util.Scanner;
@@ -42,11 +44,11 @@ public class IO {
                 System.out.println("Enter Amount to add :");
                 int amount = Integer.parseInt(sc.next());
                 Item addedItem = ac.addNewItemToStockFlow(name, price, amount);
-                System.out.println("ADDED : " + addedItem.toString());
+                System.out.println("ADDED - " + addedItem.toString());
             }
             case 1 -> {
                 System.out.println("   ---===Item(s) in stock===---");
-                String out = ac.checkStockFlow();
+                String out = ac.showStockFlow();
                 System.out.println(out);
             }
             case 2 -> {
@@ -54,10 +56,21 @@ public class IO {
                 System.out.println("   ---===Member to buy items===---");
                 System.out.println("Input buyer's memberID :");
                 int memberID = Integer.parseInt(sc.next());
-                if (!ac.memberExist(memberID)) {
+                BasicMember member = ac.getMemberByID(memberID);
+                if (member == null) {
                     System.out.println("This memberID doesn't exist!");
                     break;
                 }
+                System.out.println("Current customer: " + member.toString());
+                System.out.println("In Shopping cart: \n" + ItemUtils.showItemsInCart(member));
+                int maxChoice = (member instanceof FundamentalMintMember) ? 1 : 2; // maxChoice will be 2 ()
+                ;
+                System.out.println("<0> Add Items to cart");
+                System.out.println("<1> CheckOutWithCash");
+
+                if (maxChoice == 2) System.out.println("<2> CheckOutWithCash");
+
+
                 //let member pick item from stock to add to shoppingCart
                 //add item to member's cart
                 //checkout
@@ -77,7 +90,7 @@ public class IO {
     }
 
     private static int choiceCheck(int lowestChoice, int HighestChoice) {
-        int choice = sc.next();
+        int choice = sc.nextInt();
         while (choice < lowestChoice || choice > HighestChoice) {
             System.out.println("Invalid Input! (Try again) :");
             choice = sc.nextInt();

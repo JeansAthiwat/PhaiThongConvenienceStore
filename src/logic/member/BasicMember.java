@@ -40,7 +40,7 @@ public class BasicMember {
 
     @Override
     public String toString() {
-        return "+" + this.getClass() + "+" + " " + this.getMemberID() + " - " + this.getName(); // might error
+        return "(" + this.getClass().getSimpleName() + ")" + " ID:" + this.getMemberID() + " Name:" + this.getName(); // might error
     }
 
     public String getName() {

@@ -22,7 +22,7 @@ public class FundamentalMintMember extends BasicMember {
         this.setPoint(point);
         this.setDigitalMoney(digitalMoney);
     }
-
+    //TODO : override string and show digitalMoney left
     @Override
     public int payWithCash(int money, ArrayList<Item> shoppingCart) {
         return ItemUtils.calculateTotalPrice(shoppingCart, discount);

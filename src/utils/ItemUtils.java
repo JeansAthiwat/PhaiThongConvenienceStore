@@ -1,5 +1,6 @@
 package utils;
 
+import logic.member.BasicMember;
 import logic.store.Item;
 
 import java.util.ArrayList;
@@ -16,6 +17,16 @@ public class ItemUtils {
     public static int calculateTotalPrice(ArrayList<Item> itemsToBuy , double discount){
         int totalPrice = calculateTotalPrice(itemsToBuy);
         return (int) Math.ceil(totalPrice*(1-discount));
+    }
+
+    public static String showItemsInCart(BasicMember member){
+        ArrayList<Item> shoppingCart = member.getShoppingCart();
+        String out = "";
+        for (int i = 0; i < shoppingCart.size(); i++) {
+            Item currentItem = shoppingCart.get(i);
+            out += "(" + i + ") x" + currentItem.getAmount() + "  :" + currentItem.getName() + " (" + currentItem.getPrice() + " Baht/item)" + "\n";
+        }
+        return out;
     }
 
 }

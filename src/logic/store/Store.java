@@ -25,6 +25,9 @@ public class Store {
     public Store(int storeMoney) {
         //TODO : add each type of customer
         this.getMembers().add(new BasicMember("Jeans", 512546));
+        this.getMembers().get(0).getShoppingCart().add(new Item("RTX4090",5,15));
+        this.getMembers().get(0).getShoppingCart().add(new Item("GT 560",55550,1));
+
         this.getMembers().add(new BasicMember("Faro", 555445));
         this.getMembers().add(new BasicMember("Peet", 123456));
         this.getMembers().add(new BasicMember("Beer", 77777));
