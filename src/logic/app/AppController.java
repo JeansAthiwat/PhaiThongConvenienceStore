@@ -93,11 +93,13 @@ public class AppController {
     }
 
     public String checkOutWithCashFlow(BasicMember member, int givenMoney) { //todo STUDENT:
-        if (member.hasEnoughMoney(givenMoney)) {
-            int totalPrice = member.checkout();
-            int changeAmount = givenMoney - totalPrice;
+        int totalCartPrice = member.totalCartPrice();
+        if(totalCartPrice <= givenMoney){
+            member.checkout();
+            int changeAmount = givenMoney - totalCartPrice;
             return "Paid for all item in Cart- Change to customer:" + changeAmount + "Baht";
-        } else {
+        }
+        else{
             return "Not enough Money";
         }
     }
@@ -107,17 +109,9 @@ public class AppController {
         if(totalCartPrice <= member.getDigitalMoney()){
             member.setDigitalMoney(member.getDigitalMoney()-totalCartPrice);
             member.checkout(); // remove item from member's Cart and put to HistoryArray
-            return "Paid for all item in Cart- DigitalMoney Left :" + member.getDigitalMoney() + "Baht";
+            return "Paid for all item in Cart. DigitalMoney Left :" + member.getDigitalMoney() + "Baht";
         }else {
             return "Not enough DigitalMoney in account";
         }
-
-        /*if (member.hasEnoughMoney(member.getDigitalMoney())) {
-
-            int changeAmount = givenMoney - totalPrice;
-            return "Paid for all item in Cart- Change to customer:" + changeAmount + "Baht";
-        } else {
-            return "Not enough Money";
-        }*/
     }
 }

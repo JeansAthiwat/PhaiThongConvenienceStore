@@ -1,5 +1,6 @@
 package logic.member;
 
+import logic.store.Item;
 import utils.ItemUtils;
 
 public class FundamentalMintMember extends BasicMember {
@@ -34,17 +35,11 @@ public class FundamentalMintMember extends BasicMember {
     }
 
     @Override
-    public int checkout() {
-        int totalPrice = super.checkout();
-        this.setPoint(this.getPoint() + totalPrice);
-        return totalPrice;
-    }
+    public void checkout() {
+        int totalCartPrice = this.totalCartPrice();
+        this.setPoint(this.getPoint() + totalCartPrice);
+        super.checkout();
 
-    public int payWithCard() {
-        int totalPrice = this.checkout();
-        this.setDigitalMoney(this.getDigitalMoney() - totalPrice);
-
-        return totalPrice;
     }
 
     public int getPoint() {

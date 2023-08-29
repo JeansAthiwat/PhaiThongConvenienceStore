@@ -16,14 +16,11 @@ public class BasicMember {
         this.setMemberID(memberID);
     }
 
-    public int checkout() {
-        int totalPrice = this.totalCartPrice();
+    public void checkout() {
         for (Item item : this.getShoppingCart()) {
             this.addToPurchaseHistory(item);
         }
         this.getShoppingCart().clear();
-
-        return totalPrice;
     }
 
     private void addToPurchaseHistory(Item item) {
@@ -35,16 +32,6 @@ public class BasicMember {
                 this.getPurchaseHistory().add(item);
             }
         }
-    }
-
-
-    public boolean hasEnoughMoney(int money) { // TODO broken
-        int totalPrice = this.totalCartPrice();
-        boolean hasEnoughMoney = false;
-        if (money >= totalPrice) {
-            hasEnoughMoney = true;
-        }
-        return hasEnoughMoney;
     }
 
     public int totalCartPrice(){
