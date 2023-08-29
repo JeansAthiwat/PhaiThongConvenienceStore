@@ -46,9 +46,9 @@ public class Store {
         member.getShoppingCart().add(item);
     }
 
-    public boolean isInStock(Item OtherItem) {
+    public boolean isInStock(Item otherItem) {
         for (Item item : this.getStock()) {
-            if (OtherItem == item) {
+            if (item.equals(otherItem)) {
                 return true;
             }
         }
@@ -63,7 +63,7 @@ public class Store {
         if (isInStock(newItem)) {
             for (Item item : this.getStock()) {
                 if (item.equals(newItem)) {
-                    item.setAmount(item.getAmount() + newItem.getAmount());
+                    item.setAmount((item.getAmount() + newItem.getAmount()));
                     break;
                 }
             }

@@ -76,6 +76,7 @@ public class IO {
     private static int choiceCheck(int lowestChoice, int HighestChoice) {
         int choice = sc.nextInt();
         while (choice < lowestChoice || choice > HighestChoice) {
+            System.out.println("Invalid Input! (Try again) :");
             choice = sc.nextInt();
         }
         return choice;

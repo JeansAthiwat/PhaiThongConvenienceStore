@@ -31,8 +31,8 @@ public class AppController {
     public String checkStockFlow(){
         ArrayList<Item> stock = Store.getInstance().getStock();
         String out = "";
-        for(int i=0; i< stock.size();i++){
-            out += " x" +stock.get(i).getAmount() + "  :" +stock.get(i).getName() + "\n";
+        for (Item item : stock) {
+            out += " x" + item.getAmount() + "  :" + item.getName() + " (" + item.getPrice()+" Baht/item)"+"\n";
         }
         return out;
     }
