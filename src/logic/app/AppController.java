@@ -30,10 +30,11 @@ public class AppController {
 
     public String showStockFlow() {
         ArrayList<Item> stock = Store.getInstance().getStock();
-        String out = "";
+        String out = "   ---===Item(s) in stock===--- \n";
         for (int i = 0; i < stock.size(); i++) {
             Item currentItem = stock.get(i);
-            out += "(" + i + ") x" + currentItem.getAmount() + "  :" + currentItem.getName() + " (" + currentItem.getPrice() + " Baht/item)" + "\n";
+            out += "(" + i + ") " + currentItem + " (" + currentItem.getPrice() + " Baht/item)" + "\n";
+            //out += "(" + i + ") x" + currentItem.getAmount() + "  :" + currentItem.getName() + " (" + currentItem.getPrice() + " Baht/item)" + "\n";
         }
         return out;
     }
@@ -78,8 +79,7 @@ public class AppController {
         if(stock.get(itemStockIndex).getAmount() < amount){
             return "Cannot add more than what the stock has.";
         }else{
-            Store.getInstance().addItemToShoppingCart(member,itemStockIndex,amount);
-            return "Added to Cart :" + stock.get(itemStockIndex).toString();
+            return "Added to Cart :" + Store.getInstance().addItemToShoppingCart(member,itemStockIndex,amount);
         }
 
     }

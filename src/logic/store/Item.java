@@ -13,7 +13,7 @@ public class Item {
         this.setAmount(amount);
     }
 
-    public Item(Item templateItem, int amount){
+    public Item(Item templateItem, int amount) {
         this.setName(templateItem.getName());
         this.setPrice(templateItem.getPrice());
         this.setAmount(amount);
@@ -21,9 +21,7 @@ public class Item {
 
     @Override
     public String toString() {
-        String zeroMessage = "";
-        if (this.getAmount() == 0) zeroMessage = "OUT OF STOCK";
-        return this.getName() + ": x" + amount + zeroMessage;
+        return this.getName() + ": x" + this.getAmount();
     }
 
     public String getName() {

@@ -48,7 +48,6 @@ public class IO {
                 System.out.println("ADDED - " + addedItem.toString());
             }
             case 1 -> {
-                System.out.println("   ---===Item(s) in stock===---");
                 String out = ac.showStockFlow();
                 System.out.println(out);
             }
@@ -73,11 +72,12 @@ public class IO {
                 while (choice_member < 2) {
                     if (choice_member == 0) {
                         //let member pick item from stock to add to shoppingCart
-                        System.out.println("Pick item to add to Cart : \n");
                         System.out.println(ac.showStockFlow());
+                        System.out.println("Pick item to add to Cart : ");
                         int choice_stockItem = choiceCheck(0, Store.getInstance().getStock().size());
+                        System.out.println("Amount to add :");
                         int amountToAdd = sc.nextInt();
-                        String out = ac.addItemToShoppingCartFlow(member, choice_stockItem, amountToAdd);
+                        System.out.println(ac.addItemToShoppingCartFlow(member, choice_stockItem, amountToAdd));
                     }else if(choice_member ==1 ){
 
                     }

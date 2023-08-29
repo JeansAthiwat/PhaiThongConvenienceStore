@@ -44,10 +44,12 @@ public class Store {
 
     }
 
-    public void addItemToShoppingCart(BasicMember member, int itemStockIndex, int amount) {
-        Item currentItem = this.getStock().get(itemStockIndex);
-        currentItem.setAmount(currentItem.getAmount() - amount);
-        member.getShoppingCart().add(new Item(currentItem,amount));
+    public Item addItemToShoppingCart(BasicMember member, int itemStockIndex, int amount) {
+        Item stockItem = this.getStock().get(itemStockIndex);
+        stockItem.setAmount(stockItem.getAmount() - amount);
+        Item addingItem = new Item(stockItem,amount);
+        member.getShoppingCart().add(addingItem);
+        return addingItem;
     }
 
     public boolean isInStock(Item otherItem) {
