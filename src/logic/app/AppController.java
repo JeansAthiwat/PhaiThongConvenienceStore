@@ -72,4 +72,15 @@ public class AppController {
         }
         return null;
     }
+
+    public String addItemToShoppingCartFlow(BasicMember member, int itemStockIndex, int amount) {
+        ArrayList<Item> stock = Store.getInstance().getStock();
+        if(stock.get(itemStockIndex).getAmount() < amount){
+            return "Cannot add more than what the stock has.";
+        }else{
+            Store.getInstance().addItemToShoppingCart(member,itemStockIndex,amount);
+            return "Added to Cart :" + stock.get(itemStockIndex).toString();
+        }
+
+    }
 }
