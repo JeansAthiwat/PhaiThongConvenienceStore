@@ -3,6 +3,8 @@ package logic.app;
 import logic.store.Item;
 import logic.store.Store;
 
+import java.util.ArrayList;
+
 public class AppController {
 
     private static AppController instance = null;
@@ -18,10 +20,20 @@ public class AppController {
         return instance;
     }
 
-    public Item addItemToStockFlow(Item newItem){
+    public Item addNewItemToStockFlow(String name,int price,int amount){
         //TODO
+        Item newItem = new Item(name,price,amount);
         Store.getInstance().addItemToStock(newItem);
         return newItem;
+    }
+
+    public String checkStockFlow(){
+        ArrayList<Item> stock = Store.getInstance().getStock();
+        String out = "";
+        for(int i=0; i< stock.size();i++){
+            out += stock.get(i).getName() + ": x" + stock.get(i).getAmount() + "\n";
+        }
+        return out;
     }
 
     public void memberShoppingFlow(){
@@ -36,9 +48,6 @@ public class AppController {
         //TODO
     }
 
-    public Item createNewItem(String name,int price,int amount){
 
-        return new Item(name,price,amount);
-    }
 
 }

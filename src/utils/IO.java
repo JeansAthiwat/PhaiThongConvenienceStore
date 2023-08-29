@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class IO {
     private static final Scanner sc = new Scanner(System.in);
-    private static IO instance = new IO();
+    private static IO instance = null;
     //private static final AppController appController = new AppController();
     private static AppController ac;
 
@@ -27,25 +27,36 @@ public class IO {
     public static void home() {
         System.out.println("=================================================================");
         System.out.println("<0> Add Items to stock");
-        System.out.println("<1> Select Member to buy items");
-        System.out.println("<2> Sign Up new member");
-        System.out.println("<3> Manage member");
-        int choice = choiceCheck(0, 3);
+        System.out.println("<1> Check stock");
+        System.out.println("<2> Select Member to buy items");
+        System.out.println("<3> Sign Up new member");
+        System.out.println("<4> Manage member");
+        int choice = choiceCheck(0, 4);
         System.out.println("=================================================================");
         switch (choice) { // send to do each flow in AppController
             case 0 -> {
+                System.out.println("   ---===Creating New Item===---");
                 System.out.println("Enter Item name : ");
                 String name = sc.next();
                 System.out.println("(if already exist. It will use the old value) \nEnter Item Price :");
                 int price = Integer.parseInt(sc.next());
                 System.out.println("Enter Amount to add :");
                 int amount = Integer.parseInt(sc.next());
-                Item addedItem = ac.addItemToStockFlow(ac.createNewItem(name, price, amount));
-                System.out.println(addedItem.toString() + "ADDED");
+                Item addedItem = ac.addNewItemToStockFlow(name, price, amount);
+                System.out.println("ADDED : " + addedItem.toString());
             }
-            case 1 -> ac.memberShoppingFlow();
-            case 2 -> ac.signUpMemberFlow();
-            case 3 -> ac.manageMemberFlow();
+            case 1 -> {
+                System.out.println("   ---===Item(s) in stock===---");
+                String out = ac.checkStockFlow();
+                System.out.println(out);
+            }
+            case 2 -> {
+                //TODO
+                System.out.println("   ---===Member to buy items===---");
+                ac.memberShoppingFlow();
+            }
+            case 3 -> ac.signUpMemberFlow();
+            case 4 -> ac.manageMemberFlow();
         }
     }
 
