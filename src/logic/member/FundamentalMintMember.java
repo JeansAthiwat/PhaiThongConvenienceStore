@@ -1,9 +1,6 @@
 package logic.member;
 
-import logic.store.Item;
 import utils.ItemUtils;
-
-import java.util.ArrayList;
 
 public class FundamentalMintMember extends BasicMember {
     //TODO:
@@ -37,21 +34,17 @@ public class FundamentalMintMember extends BasicMember {
     }
 
     @Override
-    public int payWithCash(int money) {
-        int totalPrice = super.payWithCash(money);
+    public int checkout() {
+        int totalPrice = super.checkout();
         this.setPoint(this.getPoint() + totalPrice);
         return totalPrice;
     }
 
     public int payWithCard() {
-        int totalPrice = this.totalCartPrice();
-        for (Item item : this.getShoppingCart()) {
-            this.addToPurchaseHistory(item);
-        }
-        this.getShoppingCart().clear();
+        int totalPrice = this.checkout();
         this.setDigitalMoney(this.getDigitalMoney() - totalPrice);
 
-        return this.get
+        return totalPrice;
     }
 
     public int getPoint() {

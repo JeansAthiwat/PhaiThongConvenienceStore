@@ -16,7 +16,7 @@ public class BasicMember {
         this.setMemberID(memberID);
     }
 
-    public int payWithCash(int money) {
+    public int checkout() {
         int totalPrice = this.totalCartPrice();
         for (Item item : this.getShoppingCart()) {
             this.addToPurchaseHistory(item);
@@ -26,7 +26,7 @@ public class BasicMember {
         return totalPrice;
     }
 
-    public void addToPurchaseHistory(Item item) {
+    private void addToPurchaseHistory(Item item) {
         for (Item historyItem : this.getPurchaseHistory()) {
             if (historyItem.equals(item)) {
                 historyItem.setAmount(historyItem.getAmount() + item.getAmount());

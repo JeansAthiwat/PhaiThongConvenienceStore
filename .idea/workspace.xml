@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d6b7f155-9b74-478e-936d-f650e46dd787" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/logic/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/app/AppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/logic/member/BasicMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/BasicMember.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/logic/member/FundamentalMintMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/FundamentalMintMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/IO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +43,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "pay",
     "last_opened_file_path": "C:/Users/Acer/IdeaProjects/LopburiMonkey",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
