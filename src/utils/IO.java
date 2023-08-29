@@ -64,21 +64,34 @@ public class IO {
                 System.out.println("Current customer: " + member.toString());
                 System.out.println("In Shopping Cart: \n" + ItemUtils.showItemsInCart(member)); // ITemUtils or ac?
                 int maxChoice = (member instanceof FundamentalMintMember) ? 2 : 3; // maxChoice will be 2 (FMM can pay with digitalMoney)
-                System.out.println("<0> Add Items to Cart");
-                System.out.println("<1> Remove Items from Cart");
-                System.out.println("<2> CheckOut With Cash");
-                if (maxChoice == 2) System.out.println("<3> CheckOut With Digital Money");
-                int choice_member = choiceCheck(0, maxChoice);
-                while (choice_member < 2) {
+                int choice_member;
+                while (true) {
+                    System.out.println("<0> Add Items to Cart");
+                    System.out.println("<1> Remove Items from Cart");
+                    System.out.println("<2> CheckOut With Cash");
+                    if (maxChoice == 2) System.out.println("<3> CheckOut With Digital Money");
+                    choice_member = choiceCheck(0, maxChoice);
                     if (choice_member == 0) {
                         //let member pick item from stock to add to shoppingCart
                         System.out.println(ac.showStockFlow());
                         System.out.println("Pick item to add to Cart : ");
-                        int choice_stockItem = choiceCheck(0, Store.getInstance().getStock().size());
+                        int choice_stockItem = choiceCheck(0, Store.getInstance().getStock().size() - 1);
                         System.out.println("Amount to add :");
                         int amountToAdd = sc.nextInt();
                         System.out.println(ac.addItemToShoppingCartFlow(member, choice_stockItem, amountToAdd));
-                    }else if(choice_member ==1 ){
+                    } else if (choice_member == 1) {
+                        System.out.println("   ---===Select item to remove===--- \n" + ItemUtils.showItemsInCart(member));
+                        int choice_cartItem = choiceCheck(0, member.getShoppingCart().size() - 1);
+                        System.out.println(ac.removeItemFromShoppingCartFlow(member, choice_cartItem));
+                    }
+                    if(choice_member == 2){
+                        System.out.println("Input Customer Money : ");
+                        int givenMoney = sc.nextInt();
+                        System.out.println(ac.checkOutWithCashFlow(member,givenMoney));
+                        break;
+                    }
+                    if(choice_member == 3){
+                        break;
 
                     }
                     //TODO: break da loop

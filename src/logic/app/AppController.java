@@ -3,6 +3,7 @@ package logic.app;
 import logic.member.BasicMember;
 import logic.store.Item;
 import logic.store.Store;
+import utils.ItemUtils;
 
 import java.util.ArrayList;
 
@@ -76,11 +77,27 @@ public class AppController {
 
     public String addItemToShoppingCartFlow(BasicMember member, int itemStockIndex, int amount) {
         ArrayList<Item> stock = Store.getInstance().getStock();
-        if(stock.get(itemStockIndex).getAmount() < amount){
+        if (stock.get(itemStockIndex).getAmount() < amount) {
             return "Cannot add more than what the stock has.";
-        }else{
-            return "Added to Cart :" + Store.getInstance().addItemToShoppingCart(member,itemStockIndex,amount);
+        } else {
+            return "Added to Cart :" + Store.getInstance().addItemToShoppingCart(member, itemStockIndex, amount);
         }
 
+    }
+
+    public String removeItemFromShoppingCartFlow(BasicMember member, int itemCartIndex) {
+        Item item = member.getShoppingCart().get(itemCartIndex);
+        member.getShoppingCart().remove(itemCartIndex);
+        Store.getInstance().addItemToStock(item);
+        return "Removed from Cart :" + item;
+    }
+
+    public String checkOutWithCashFlow(BasicMember member, int givenMoney) {
+        if (member.hasEnoughMoney(givenMoney)) {
+            int changeAmount = member.payWithCash(givenMoney);
+            return "Paid for all item in Cart- Change to customer:" + changeAmount + "Baht";
+        } else {
+            return "Not enough Money";
+        }
     }
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class FundamentalMintMember extends BasicMember {
     //TODO:
     private int point;
-    private final double discount = 0.05; //?
+    private final double discountPercent = 0.05; //?
     private int digitalMoney;
 
     public FundamentalMintMember(String name, int memberID) {
@@ -24,16 +24,18 @@ public class FundamentalMintMember extends BasicMember {
     }
     //TODO : override string and show digitalMoney left
     @Override
-    public int payWithCash(int money, ArrayList<Item> shoppingCart) {
-        return ItemUtils.calculateTotalPrice(shoppingCart, discount);
+    public int payWithCash(int money) {
+        // TODO:
+        return ItemUtils.calculateTotalPrice(this.getShoppingCart(), discountPercent);
     }
 
     public int payWithCard(ArrayList<Item> shoppingCart){
-        return ItemUtils.calculateTotalPrice(shoppingCart, discount);
+        return ItemUtils.calculateTotalPrice(shoppingCart, discountPercent);
     }
 
     @Override
-    public boolean hasEnoughMoney(int money, int totalPrice) {
+    public boolean hasEnoughMoney(int money) {
+        int totalPrice = ItemUtils.calculateTotalPrice(this.getShoppingCart(),this.getDiscountPercent());
         boolean hasEnoughMoney = false;
         if (money >= totalPrice) {
             hasEnoughMoney = true;
@@ -52,8 +54,8 @@ public class FundamentalMintMember extends BasicMember {
         this.point = point;
     }
 
-    public double getDiscount() {
-        return discount;
+    public double getDiscountPercent() {
+        return discountPercent;
     }
 
     public int getDigitalMoney() {

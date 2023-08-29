@@ -16,13 +16,30 @@ public class BasicMember {
         this.setMemberID(memberID);
     }
 
-    public int payWithCash(int money, ArrayList<Item> shoppingCart) {
-        int totalPrice;
-        totalPrice = ItemUtils.calculateTotalPrice(shoppingCart);
-        return totalPrice;
+    public int payWithCash(int money) {
+        int totalPrice = ItemUtils.calculateTotalPrice(this.getShoppingCart());
+        for (Item item : this.getShoppingCart()) {
+            this.addToPurchaseHistory(item);
+        }
+        this.getShoppingCart().clear();
+
+        return money - totalPrice;
     }
 
-    public boolean hasEnoughMoney(int money, int totalPrice) { // TODO broken
+    private void addToPurchaseHistory(Item item) {
+        for (Item historyItem : this.getPurchaseHistory()) {
+            if (historyItem.equals(item)) {
+                historyItem.setAmount(historyItem.getAmount() + item.getAmount());
+            }
+            else{
+                this.getPurchaseHistory().add(item);
+            }
+        }
+    }
+
+
+    public boolean hasEnoughMoney(int money) { // TODO broken
+        int totalPrice = ItemUtils.calculateTotalPrice(this.getShoppingCart());
         boolean hasEnoughMoney = false;
         if (money >= totalPrice) {
             hasEnoughMoney = true;

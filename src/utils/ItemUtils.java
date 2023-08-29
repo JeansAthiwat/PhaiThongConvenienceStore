@@ -14,9 +14,9 @@ public class ItemUtils {
         return totalPrice;
     }
 
-    public static int calculateTotalPrice(ArrayList<Item> itemsToBuy , double discount){
+    public static int calculateTotalPrice(ArrayList<Item> itemsToBuy , double discountPercent){
         int totalPrice = calculateTotalPrice(itemsToBuy);
-        return (int) Math.ceil(totalPrice*(1-discount));
+        return (int) Math.ceil(totalPrice*(1-discountPercent));
     }
 
     public static String showItemsInCart(BasicMember member){
