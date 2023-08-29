@@ -51,6 +51,8 @@ public class IO {
                 String out = ac.showStockFlow();
                 System.out.println(out);
             }
+
+
             case 2 -> {
                 //TODO
                 System.out.println("   ---===Member to buy items===---");
@@ -106,6 +108,8 @@ public class IO {
                 //after satisfied
                 ac.memberShoppingFlow();
             }
+
+
             case 3 -> ac.signUpMemberFlow();
             case 4 -> ac.manageMemberFlow();
         }

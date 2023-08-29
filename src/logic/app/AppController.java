@@ -94,7 +94,8 @@ public class AppController {
 
     public String checkOutWithCashFlow(BasicMember member, int givenMoney) {
         if (member.hasEnoughMoney(givenMoney)) {
-            int changeAmount = member.payWithCash(givenMoney);
+            int totalPrice = member.payWithCash(givenMoney);
+            int changeAmount = givenMoney - totalPrice;
             return "Paid for all item in Cart- Change to customer:" + changeAmount + "Baht";
         } else {
             return "Not enough Money";
