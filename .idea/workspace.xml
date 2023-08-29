@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="d6b7f155-9b74-478e-936d-f650e46dd787" name="Changes" comment="" />
+=======
+    <list default="true" id="d6b7f155-9b74-478e-936d-f650e46dd787" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/member/FundamentalMintMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/FundamentalMintMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/member/PhaiThongCasanovaMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/PhaiThongCasanovaMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/member/StarvingStudentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/StarvingStudentMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/store/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/store/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/IO.java" afterDir="false" />
+    </list>
+>>>>>>> pay
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +43,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
@@ -46,6 +58,22 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "pay",
+    "last_opened_file_path": "C:/Users/Acer/IdeaProjects/LopburiMonkey",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+>>>>>>> pay
   }
 }</component>
   <component name="RunManager">
@@ -83,5 +111,20 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/logic/member/BasicMember.java</url>
+          <line>67</line>
+          <properties class="logic.member.BasicMember" method="setMemberID">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

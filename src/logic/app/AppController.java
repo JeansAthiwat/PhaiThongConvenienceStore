@@ -1,9 +1,9 @@
 package logic.app;
 
 import logic.member.BasicMember;
+import logic.member.FundamentalMintMember;
 import logic.store.Item;
 import logic.store.Store;
-import utils.ItemUtils;
 
 import java.util.ArrayList;
 
@@ -92,13 +92,26 @@ public class AppController {
         return "Removed from Cart :" + item;
     }
 
-    public String checkOutWithCashFlow(BasicMember member, int givenMoney) {
-        if (member.hasEnoughMoney(givenMoney)) {
-            int totalPrice = member.payWithCash(givenMoney);
-            int changeAmount = givenMoney - totalPrice;
+    public String checkOutWithCashFlow(BasicMember member, int givenMoney) { //todo STUDENT:
+        int totalCartPrice = member.totalCartPrice();
+        if(totalCartPrice <= givenMoney){
+            member.checkout();
+            int changeAmount = givenMoney - totalCartPrice;
             return "Paid for all item in Cart- Change to customer:" + changeAmount + "Baht";
-        } else {
+        }
+        else{
             return "Not enough Money";
+        }
+    }
+
+    public String checkoutWithDigitalMoneyFlow(FundamentalMintMember member) { //todo STUDENT:
+        int totalCartPrice = member.totalCartPrice();
+        if(totalCartPrice <= member.getDigitalMoney()){
+            member.setDigitalMoney(member.getDigitalMoney()-totalCartPrice);
+            member.checkout(); // remove item from member's Cart and put to HistoryArray
+            return "Paid for all item in Cart. DigitalMoney Left :" + member.getDigitalMoney() + "Baht";
+        }else {
+            return "Not enough DigitalMoney in account";
         }
     }
 }

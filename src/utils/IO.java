@@ -65,13 +65,13 @@ public class IO {
                 }
                 System.out.println("Current customer: " + member.toString());
                 System.out.println("In Shopping Cart: \n" + ItemUtils.showItemsInCart(member)); // ITemUtils or ac?
-                int maxChoice = (member instanceof FundamentalMintMember) ? 2 : 3; // maxChoice will be 2 (FMM can pay with digitalMoney)
+                int maxChoice = (member instanceof FundamentalMintMember) ? 3 : 2; // maxChoice will be 2 (FMM can pay with digitalMoney)
                 int choice_member;
                 while (true) {
                     System.out.println("<0> Add Items to Cart");
                     System.out.println("<1> Remove Items from Cart");
                     System.out.println("<2> CheckOut With Cash");
-                    if (maxChoice == 2) System.out.println("<3> CheckOut With Digital Money");
+                    if (maxChoice == 3) System.out.println("<3> CheckOut With Digital Money");
                     choice_member = choiceCheck(0, maxChoice);
                     if (choice_member == 0) {
                         //let member pick item from stock to add to shoppingCart
@@ -93,6 +93,7 @@ public class IO {
                         break;
                     }
                     if(choice_member == 3){
+                        System.out.println(ac.checkoutWithDigitalMoneyFlow((FundamentalMintMember) member));
                         break;
 
                     }
