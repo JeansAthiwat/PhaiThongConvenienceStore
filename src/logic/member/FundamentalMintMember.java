@@ -6,7 +6,7 @@ import utils.ItemUtils;
 public class FundamentalMintMember extends BasicMember {
     //TODO:
     private int point;
-    private double discountPercent; //?
+    protected double discountPercent; //?
     private int digitalMoney;
 
     public FundamentalMintMember(String name, int memberID) {
@@ -26,7 +26,7 @@ public class FundamentalMintMember extends BasicMember {
     //TODO : override string and show digitalMoney left
     @Override
     public String toString() {
-        return "(" + this.getClass().getSimpleName() + ")" + " ID:" + this.getMemberID() + " Name:" + this.getName() + "DigitalMoney In account : " + this.getDigitalMoney(); // might error
+        return "(" + this.getClass().getSimpleName() + ")" + " ID:" + this.getMemberID() + " Name:" + this.getName() + " DigitalMoney in Account: " + this.getDigitalMoney(); // might error
     }
 
     @Override
@@ -39,12 +39,16 @@ public class FundamentalMintMember extends BasicMember {
         int totalCartPrice = this.totalCartPrice();
         this.setPoint(this.getPoint() + totalCartPrice);
         super.checkout();
-
     }
 
+    public void convertPoint(){
+        int totalPoint = this.getPoint();
+        int totalMoney = totalPoint/100;
+        this.setPoint(this.getPoint()-totalMoney*100);
+    }
     public int getPoint() {
         return point;
-    }
+    }{}
 
     public void setPoint(int point) {
         if (point < 0) {
