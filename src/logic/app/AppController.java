@@ -1,5 +1,6 @@
 package logic.app;
 
+import logic.member.BasicMember;
 import logic.store.Item;
 import logic.store.Store;
 
@@ -31,7 +32,7 @@ public class AppController {
         ArrayList<Item> stock = Store.getInstance().getStock();
         String out = "";
         for(int i=0; i< stock.size();i++){
-            out += stock.get(i).getName() + ": x" + stock.get(i).getAmount() + "\n";
+            out += " x" +stock.get(i).getAmount() + "  :" +stock.get(i).getName() + "\n";
         }
         return out;
     }
@@ -40,6 +41,17 @@ public class AppController {
         //TODO
     }
 
+    public boolean memberExist(int memberID){
+        boolean isExist = false;
+        ArrayList<BasicMember> members = Store.getInstance().getMembers();
+        for(BasicMember member : members){
+            if(member.getMemberID() == memberID){
+                isExist = true;
+                break;
+            }
+        }
+        return isExist;
+    }
     public void signUpMemberFlow(){
         //TODO
     }

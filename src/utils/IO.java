@@ -21,10 +21,9 @@ public class IO {
 
     public IO() {
         ac = new AppController();
-        home();
     }
 
-    public static void home() {
+    public void home() {
         System.out.println("=================================================================");
         System.out.println("<0> Add Items to stock");
         System.out.println("<1> Check stock");
@@ -53,6 +52,15 @@ public class IO {
             case 2 -> {
                 //TODO
                 System.out.println("   ---===Member to buy items===---");
+                System.out.println("Input buyer's memberID :");
+                int memberID = Integer.parseInt(sc.next());
+                if (!ac.memberExist(memberID)) {
+                    System.out.println("This memberID doesn't exist!");
+                    break;
+                }
+
+
+
                 ac.memberShoppingFlow();
             }
             case 3 -> ac.signUpMemberFlow();
