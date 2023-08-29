@@ -58,9 +58,12 @@ public class IO {
                     System.out.println("This memberID doesn't exist!");
                     break;
                 }
+                //let member pick item from stock to add to shoppingCart
+                //add item to member's cart
+                //checkout
+                // if - instance of fundamentalMintMember checkout with digitalMoney
 
-
-
+                //after satisfied
                 ac.memberShoppingFlow();
             }
             case 3 -> ac.signUpMemberFlow();
@@ -74,7 +77,7 @@ public class IO {
     }
 
     private static int choiceCheck(int lowestChoice, int HighestChoice) {
-        int choice = sc.nextInt();
+        int choice = sc.next();
         while (choice < lowestChoice || choice > HighestChoice) {
             System.out.println("Invalid Input! (Try again) :");
             choice = sc.nextInt();

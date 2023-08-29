@@ -13,4 +13,9 @@ public class ItemUtils {
         return totalPrice;
     }
 
+    public static int calculateTotalPrice(ArrayList<Item> itemsToBuy , double discount){
+        int totalPrice = calculateTotalPrice(itemsToBuy);
+        return (int) Math.ceil(totalPrice*(1-discount));
+    }
+
 }

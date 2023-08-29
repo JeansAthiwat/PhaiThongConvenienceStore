@@ -22,7 +22,7 @@ public class BasicMember {
         return totalPrice;
     }
 
-    public boolean hasEnoughMoney(int money, int totalPrice) {
+    public boolean hasEnoughMoney(int money, int totalPrice) { // TODO broken
         boolean hasEnoughMoney = false;
         if (money >= totalPrice) {
             hasEnoughMoney = true;
