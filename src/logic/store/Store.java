@@ -57,6 +57,15 @@ public class Store {
         return false;
     }
 
+    public boolean isMember(BasicMember otherMember) {
+        for (BasicMember member : this.getMembers()) {
+            if (member.equals(otherMember)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public ArrayList<Item> getStock() {
         return stock;
     }

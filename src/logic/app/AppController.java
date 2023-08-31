@@ -2,6 +2,8 @@ package logic.app;
 
 import logic.member.BasicMember;
 import logic.member.FundamentalMintMember;
+import logic.member.PhaiThongCasanovaMember;
+import logic.member.StarvingStudentMember;
 import logic.store.Item;
 import logic.store.Store;
 
@@ -56,8 +58,22 @@ public class AppController {
         return isExist;
     }
 
-    public void signUpMemberFlow() {
+    public boolean signUpMemberFlow(int member_type, String memberName, int memberID, int memberDigitalMoney) {
         //TODO
+        BasicMember member = null;
+        switch (member_type) {
+            case 0 -> member = new BasicMember(memberName, memberID);
+            case 1 -> member = new FundamentalMintMember(memberName, memberID, 0, memberDigitalMoney);
+            case 2 -> member = new PhaiThongCasanovaMember(memberName, memberID, 0, memberDigitalMoney);
+            case 3 -> member = new StarvingStudentMember(memberName, memberID, 0, memberDigitalMoney);
+        }
+        Store store = Store.getInstance();
+        if (member == null || store.isMember(member)) {
+            return false;
+        } else {
+            store.getMembers().add(member);
+            return true;
+        }
     }
 
     public void manageMemberFlow() {
@@ -94,23 +110,22 @@ public class AppController {
 
     public String checkOutWithCashFlow(BasicMember member, int givenMoney) { //todo STUDENT:
         int totalCartPrice = member.totalCartPrice();
-        if(totalCartPrice <= givenMoney){
+        if (totalCartPrice <= givenMoney) {
             member.checkout();
             int changeAmount = givenMoney - totalCartPrice;
             return "Paid for all item in Cart- Change to customer:" + changeAmount + "Baht";
-        }
-        else{
+        } else {
             return "Not enough Money";
         }
     }
 
     public String checkoutWithDigitalMoneyFlow(FundamentalMintMember member) { //todo STUDENT:
         int totalCartPrice = member.totalCartPrice();
-        if(totalCartPrice <= member.getDigitalMoney()){
-            member.setDigitalMoney(member.getDigitalMoney()-totalCartPrice);
+        if (totalCartPrice <= member.getDigitalMoney()) {
+            member.setDigitalMoney(member.getDigitalMoney() - totalCartPrice);
             member.checkout(); // remove item from member's Cart and put to HistoryArray
             return "Paid for all item in Cart. DigitalMoney Left :" + member.getDigitalMoney() + "Baht";
-        }else {
+        } else {
             return "Not enough DigitalMoney in account";
         }
     }

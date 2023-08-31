@@ -3,6 +3,7 @@ package utils;
 import logic.app.AppController;
 import logic.member.BasicMember;
 import logic.member.FundamentalMintMember;
+import logic.member.PhaiThongCasanovaMember;
 import logic.store.Item;
 import logic.store.Store;
 
@@ -40,11 +41,8 @@ public class IO {
                 this.addItemsToStockFlow();
             }
             case 1 -> {
-                String out = ac.showStockFlow();
-                System.out.println(out);
+                System.out.println(ac.showStockFlow());
             }
-
-
             case 2 -> {
                 //TODO
                 System.out.println("   ---===Member to buy items===---");
@@ -75,35 +73,52 @@ public class IO {
                         System.out.println(ac.addItemToShoppingCartFlow(member, choice_stockItem, amountToAdd));
                     } else if (choice_member == 1) {
                         System.out.println("   ---===Select item to remove===--- \n" + ItemUtils.showItemsInCart(member));
+                        if (member.getShoppingCart().isEmpty()) {
+                            System.out.println("No item in the Shopping Cart!");
+                            break;
+                        }
                         int choice_cartItem = choiceCheck(0, member.getShoppingCart().size() - 1);
                         System.out.println(ac.removeItemFromShoppingCartFlow(member, choice_cartItem));
                     }
-                    if(choice_member == 2){
+                    if (choice_member == 2) {
                         System.out.println("Input Customer Money : ");
                         int givenMoney = sc.nextInt();
-                        System.out.println(ac.checkOutWithCashFlow(member,givenMoney));
+                        System.out.println(ac.checkOutWithCashFlow(member, givenMoney));
                         break;
                     }
-                    if(choice_member == 3){
+                    if (choice_member == 3) {
                         System.out.println(ac.checkoutWithDigitalMoneyFlow((FundamentalMintMember) member));
                         break;
 
                     }
-                    //TODO: break da loop
                     System.out.println("In Shopping Cart: \n" + ItemUtils.showItemsInCart(member));
                 }
 
-
-                //add item to member's cart
-                //checkout
-                // if - instance of fundamentalMintMember checkout with digitalMoney
-
-                //after satisfied
-                ac.memberShoppingFlow();
             }
-
-
-            case 3 -> ac.signUpMemberFlow();
+            case 3 -> {
+                System.out.println("   ---===Sign Up new member===---\n");
+                System.out.println("Select member's tier: ");
+                System.out.println("<0> Basic");
+                System.out.println("<1> FundamentalMint");
+                System.out.println("<2> PhaiThongCasanova");
+                System.out.println("<3> StarvingStudent");
+                int choice_memberType = sc.nextInt();
+                System.out.println("Enter member's name: ");
+                String memberName = sc.next();
+                System.out.println("Enter member's ID: ");
+                int memberID = sc.nextInt();
+                int memberDigitalMoney = 0;
+                if(choice_memberType > 0){
+                    System.out.println("Enter member's starting DigitalMoney: ");
+                    memberDigitalMoney = sc.nextInt();
+                }
+                boolean added = ac.signUpMemberFlow(choice_memberType,memberName,memberID,memberDigitalMoney);
+                if(added) {
+                    System.out.println("New member Created");
+                }else{
+                    System.out.println("Member already exist!!");
+                }
+            }
             case 4 -> ac.manageMemberFlow();
         }
     }
@@ -122,7 +137,7 @@ public class IO {
         return choice;
     }
 
-    private void addItemsToStockFlow(){
+    private void addItemsToStockFlow() {
         System.out.println("   ---===Creating New Item===---");
         System.out.println("Enter Item name : ");
         String name = sc.next();
