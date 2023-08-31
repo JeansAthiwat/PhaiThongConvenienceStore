@@ -37,15 +37,7 @@ public class IO {
         System.out.println("=================================================================");
         switch (choice_home) { // send to do each flow in AppController
             case 0 -> {
-                System.out.println("   ---===Creating New Item===---");
-                System.out.println("Enter Item name : ");
-                String name = sc.next();
-                System.out.println("(if already exist. It will use the old value) \nEnter Item Price :");
-                int price = Integer.parseInt(sc.next());
-                System.out.println("Enter Amount to add :");
-                int amount = Integer.parseInt(sc.next());
-                Item addedItem = ac.addNewItemToStockFlow(name, price, amount);
-                System.out.println("ADDED - " + addedItem.toString());
+                this.addItemsToStockFlow();
             }
             case 1 -> {
                 String out = ac.showStockFlow();
@@ -128,5 +120,17 @@ public class IO {
             choice = sc.nextInt();
         }
         return choice;
+    }
+
+    private void addItemsToStockFlow(){
+        System.out.println("   ---===Creating New Item===---");
+        System.out.println("Enter Item name : ");
+        String name = sc.next();
+        System.out.println("(if already exist. It will use the old value) \nEnter Item Price :");
+        int price = Integer.parseInt(sc.next());
+        System.out.println("Enter Amount to add :");
+        int amount = Integer.parseInt(sc.next());
+        Item addedItem = ac.addNewItemToStockFlow(name, price, amount);
+        System.out.println("ADDED - " + addedItem.toString());
     }
 }
