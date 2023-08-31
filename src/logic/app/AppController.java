@@ -76,8 +76,21 @@ public class AppController {
         }
     }
 
-    public void manageMemberFlow() {
+    public void manageMemberFlow(int choice_member) {
         //TODO
+        BasicMember member = Store.getInstance().getMembers().get(choice_member);
+        if(member.getTierName().equals("Basic")){
+
+        }
+    }
+
+    public String showMemberList(){
+        String out = "";
+        ArrayList<BasicMember> members = Store.getInstance().getMembers();
+        for(int i = 0; i< members.size();i++){
+            out += "(" + i + ")" + members.get(i).toString() + "\n";
+        }
+        return out;
     }
 
 

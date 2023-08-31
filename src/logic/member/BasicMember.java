@@ -47,7 +47,12 @@ public class BasicMember {
 
     @Override
     public String toString() {
-        return "(" + this.getClass().getSimpleName() + ")" + " ID:" + this.getMemberID() + " Name:" + this.getName(); // might error
+        //return "(" + this.getClass().getSimpleName() + ")" + " ID:" + this.getMemberID() + " Name:" + this.getName(); // might error
+        return "(Basic)" + " " + this.getMemberID() + "-" + this.getName(); // might error
+    }
+
+    public String getTierName(){
+        return "Basic";
     }
 
     public String getName() {

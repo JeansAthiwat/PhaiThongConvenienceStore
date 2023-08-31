@@ -12,6 +12,16 @@ public class StarvingStudentMember extends FundamentalMintMember {
         this.discountPercent = 0.20;
     }
 
+    @Override
+    public String toString() {
+        return "(StarvingStudent)" + " " + getMemberID() + "-" + getName() + " DigitalMoney: " + getDigitalMoney() + " Points: " + getPoint() + " Loans: " + getLoan();
+    }
+
+    @Override
+    public String getTierName() {
+        return "StarvingStudent";
+    }
+
     public boolean loanMoney(int amount) {
         if (this.getLoan() + amount <= MAX_LOAN) {
             Store store = Store.getInstance();

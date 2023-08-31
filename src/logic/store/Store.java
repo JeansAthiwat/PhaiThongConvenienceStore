@@ -2,6 +2,8 @@ package logic.store;
 
 import logic.member.BasicMember;
 import logic.member.FundamentalMintMember;
+import logic.member.PhaiThongCasanovaMember;
+import logic.member.StarvingStudentMember;
 
 import java.util.ArrayList;
 
@@ -105,9 +107,9 @@ public class Store {
         this.getMembers().add(new FundamentalMintMember("CHADJeans", 2, 0, 1000));
         this.getMembers().get(1).getShoppingCart().add(new Item("RTX4090", 5, 10));
 
-        this.getMembers().add(new BasicMember("Faro", 555445));
-        this.getMembers().add(new BasicMember("Peet", 123456));
-        this.getMembers().add(new BasicMember("Beer", 77777));
+        this.getMembers().add(new StarvingStudentMember("Faro", 555445,0,5));
+        this.getMembers().add(new PhaiThongCasanovaMember("Peet", 123456,5000,9999999));
+        this.getMembers().add(new PhaiThongCasanovaMember("Beer", 777775000,0,9999999));
 
         this.getStock().add(new Item("Jelly Beans", 10, 10000));
         this.getStock().add(new Item("Painkiller", 100, 500));

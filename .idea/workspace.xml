@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23232d4f-9817-4c64-a82e-dafb0434cf9b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/app/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/member/BasicMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/BasicMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/member/FundamentalMintMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/FundamentalMintMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/member/PhaiThongCasanovaMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/PhaiThongCasanovaMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/member/StarvingStudentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/StarvingStudentMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/store/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/store/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/IO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +20,17 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2Ul2WV5dAtzzsxJsFSj0vszg5uM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -23,6 +41,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Acer/IdeaProjects/PhaiThongConvenienceStore",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,6 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1693485653163</updated>
       <workItem from="1693485656574" duration="6322000" />
+      <workItem from="1693499881428" duration="2853000" />
     </task>
     <servers />
   </component>

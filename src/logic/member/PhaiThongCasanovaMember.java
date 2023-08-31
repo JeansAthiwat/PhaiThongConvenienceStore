@@ -10,6 +10,15 @@ public class PhaiThongCasanovaMember extends FundamentalMintMember {
     }
 
     @Override
+    public String toString() {
+        return "(PhaiThongCasanova)" + " " + this.getMemberID() + "-" + this.getName() + " DigitalMoney: " + this.getDigitalMoney() + " Points: " + getPoint();
+    }
+    @Override
+    public String getTierName() {
+        return "PhaiThongCasanova";
+    }
+
+    @Override
     public void convertPoint() {
         int totalPoint = this.getPoint();
         int totalMoney = totalPoint/50;

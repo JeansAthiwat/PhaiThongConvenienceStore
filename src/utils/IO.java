@@ -7,6 +7,7 @@ import logic.member.PhaiThongCasanovaMember;
 import logic.store.Item;
 import logic.store.Store;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class IO {
@@ -119,7 +120,39 @@ public class IO {
                 }
             }
             case 4 -> {
-                ac.manageMemberFlow();
+                System.out.println("   ---===Manage member===---\n");
+                System.out.println(ac.showMemberList());
+                System.out.println("Select Member: ");
+                ArrayList<BasicMember> members = Store.getInstance().getMembers();
+                int choice_member = choiceCheck(0, members.size() - 1);
+                BasicMember member = members.get(choice_member);
+                //TODO: NEW IDEA Change from if else to show all of them but write --NOT AVALABLE FOR Basic,fundamental blabla instead
+                int memberHighestChoice = 1;
+                System.out.println("<0> Go Back");
+                System.out.println("<1> Delete Member");
+                if (member.getTierName().equals("FundamentalMint")) {
+                    System.out.println("<2> Convert Point to DigitalMoney");
+                    memberHighestChoice = 2;
+                }
+                if (member.getTierName().equals("PhaiThongCasanova")) {
+                    System.out.println("<3> Points Gacha! (exchange 1000 Points to get 1 random Item)");
+                    memberHighestChoice = 3;
+                } else if (member.getTierName().equals("StarvingStudent")) {
+                    System.out.println("<3> Get loan");
+                    System.out.println("<4> Payback loan");
+                    memberHighestChoice = 4;
+                }
+
+                int choice_memberOption = choiceCheck(0,memberHighestChoice);
+                switch (choice_memberOption) {
+                    case 0 -> {
+                    }
+
+                    case 1 -> ac.deleteMemberFlow(member);
+                    case 2 -> ac.convertPointFlow(member);
+                    case 3 -> ac.gachaFlow(member);
+                    case 4 -> ac.get
+                }
             }
 
         }

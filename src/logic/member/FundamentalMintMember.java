@@ -26,12 +26,18 @@ public class FundamentalMintMember extends BasicMember {
     //TODO : override string and show digitalMoney left
     @Override
     public String toString() {
-        return "(" + this.getClass().getSimpleName() + ")" + " ID:" + this.getMemberID() + " Name:" + this.getName() + " DigitalMoney in Account: " + this.getDigitalMoney() + " totalPoint: " + getPoint(); // might error
+        //return "(" + this.getClass().getSimpleName() + ")" + " ID:" + this.getMemberID() + " Name:" + this.getName() + " DigitalMoney in Account: " + this.getDigitalMoney() + " totalPoint: " + getPoint(); // might error
+        return "(FundamentalMint)" + " " + this.getMemberID() + "-" + this.getName() + " DigitalMoney: " + this.getDigitalMoney() + " Points: " + getPoint(); // might error
     }
 
     @Override
     public int totalCartPrice() {
         return ItemUtils.calculateTotalPrice(this.getShoppingCart(), this.getDiscountPercent());
+    }
+
+    @Override
+    public String getTierName() {
+        return "FundamentalMint";
     }
 
     @Override
@@ -41,14 +47,15 @@ public class FundamentalMintMember extends BasicMember {
         super.checkout();
     }
 
-    public void convertPoint(){
+    public void convertPoint() {
         int totalPoint = this.getPoint();
-        int totalMoney = totalPoint/100;
-        this.setPoint(this.getPoint()-totalMoney*100);
+        int totalMoney = totalPoint / 100;
+        this.setPoint(this.getPoint() - totalMoney * 100);
     }
+
     public int getPoint() {
         return point;
-    }{}
+    }
 
     public void setPoint(int point) {
         if (point < 0) {
