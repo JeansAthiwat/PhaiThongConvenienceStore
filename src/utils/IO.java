@@ -89,7 +89,6 @@ public class IO {
                     if (choice_member == 3) {
                         System.out.println(ac.checkoutWithDigitalMoneyFlow((FundamentalMintMember) member));
                         break;
-
                     }
                     System.out.println("In Shopping Cart: \n" + ItemUtils.showItemsInCart(member));
                 }
@@ -108,18 +107,21 @@ public class IO {
                 System.out.println("Enter member's ID: ");
                 int memberID = sc.nextInt();
                 int memberDigitalMoney = 0;
-                if(choice_memberType > 0){
+                if (choice_memberType > 0) {
                     System.out.println("Enter member's starting DigitalMoney: ");
                     memberDigitalMoney = sc.nextInt();
                 }
-                boolean added = ac.signUpMemberFlow(choice_memberType,memberName,memberID,memberDigitalMoney);
-                if(added) {
+                boolean added = ac.signUpMemberFlow(choice_memberType, memberName, memberID, memberDigitalMoney);
+                if (added) {
                     System.out.println("New member Created");
-                }else{
+                } else {
                     System.out.println("Member already exist!!");
                 }
             }
-            case 4 -> ac.manageMemberFlow();
+            case 4 -> {
+                ac.manageMemberFlow();
+            }
+
         }
     }
 
