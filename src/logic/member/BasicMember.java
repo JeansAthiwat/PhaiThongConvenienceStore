@@ -23,7 +23,7 @@ public class BasicMember {
         this.getShoppingCart().clear();
     }
 
-    private void addToPurchaseHistory(Item item) {
+    protected void addToPurchaseHistory(Item item) {
         for (Item historyItem : this.getPurchaseHistory()) {
             if (historyItem.equals(item)) {
                 historyItem.setAmount(historyItem.getAmount() + item.getAmount());

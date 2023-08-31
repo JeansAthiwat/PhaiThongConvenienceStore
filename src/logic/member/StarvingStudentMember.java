@@ -21,7 +21,7 @@ public class StarvingStudentMember extends FundamentalMintMember {
         return loan;
     }
 
-    public void setLoan(int loan) {
+    public void setTotalLoan(int loan) {
         if (loan < 0) {
             loan = 0;
         }

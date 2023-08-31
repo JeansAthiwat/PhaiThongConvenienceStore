@@ -24,21 +24,7 @@ public class Store {
     }
 
     public Store(int storeMoney) {
-        //TODO : add each type of customer
-        this.getMembers().add(new BasicMember("NormieJeans", 1));
-        this.getMembers().get(0).getShoppingCart().add(new Item("GT 560",50,1));
-        this.getMembers().add(new FundamentalMintMember("CHADJeans", 2,0,1000));
-        this.getMembers().get(1).getShoppingCart().add(new Item("RTX4090",5,10));
-
-        this.getMembers().add(new BasicMember("Faro", 555445));
-        this.getMembers().add(new BasicMember("Peet", 123456));
-        this.getMembers().add(new BasicMember("Beer", 77777));
-
-        this.getStock().add(new Item("Jelly Beans", 10, 10000));
-        this.getStock().add(new Item("Painkiller", 100, 500));
-        this.getStock().add(new Item("Orange", 150, 10));
-        this.getStock().add(new Item("Coconut Milk", 300, 30));
-        this.setStoreMoney(storeMoney);
+        this.initializeStore();
     }
 
     public void checkOut(BasicMember member) {
@@ -46,10 +32,18 @@ public class Store {
 
     }
 
+    public Item giveRandomItemFromStock() {
+        int randomIndex = (int) Math.floor(Math.random() * this.getStock().size());
+        Item stockItem = this.getStock().get(randomIndex);
+        Item item = new Item(stockItem, 1);
+        stockItem.setAmount(stockItem.getAmount() - 1);
+        return item;
+    }
+
     public Item addItemToShoppingCart(BasicMember member, int itemStockIndex, int amount) {
         Item stockItem = this.getStock().get(itemStockIndex);
         stockItem.setAmount(stockItem.getAmount() - amount);
-        Item addingItem = new Item(stockItem,amount);
+        Item addingItem = new Item(stockItem, amount);
         member.getShoppingCart().add(addingItem);
         return addingItem;
     }
@@ -93,6 +87,24 @@ public class Store {
             storeMoney = 0;
         }
         this.storeMoney = storeMoney;
+    }
+
+    private void initializeStore() {
+        //TODO : add each type of customer
+        this.getMembers().add(new BasicMember("NormieJeans", 1));
+        this.getMembers().get(0).getShoppingCart().add(new Item("GT 560", 50, 1));
+        this.getMembers().add(new FundamentalMintMember("CHADJeans", 2, 0, 1000));
+        this.getMembers().get(1).getShoppingCart().add(new Item("RTX4090", 5, 10));
+
+        this.getMembers().add(new BasicMember("Faro", 555445));
+        this.getMembers().add(new BasicMember("Peet", 123456));
+        this.getMembers().add(new BasicMember("Beer", 77777));
+
+        this.getStock().add(new Item("Jelly Beans", 10, 10000));
+        this.getStock().add(new Item("Painkiller", 100, 500));
+        this.getStock().add(new Item("Orange", 150, 10));
+        this.getStock().add(new Item("Coconut Milk", 300, 30));
+        this.setStoreMoney(storeMoney);
     }
 
 }
