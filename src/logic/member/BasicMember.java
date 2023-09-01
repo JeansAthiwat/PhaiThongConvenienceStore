@@ -24,19 +24,23 @@ public class BasicMember {
     }
 
     public void addToPurchaseHistory(Item item) {
-        for (Item historyItem : this.getPurchaseHistory()) {
-            if (historyItem.equals(item)) {
-                historyItem.setAmount(historyItem.getAmount() + item.getAmount());
-            }
-            else{
-                this.getPurchaseHistory().add(item);
+        if (!getPurchaseHistory().isEmpty()) {
+            for (Item historyItem : this.getPurchaseHistory()) {
+                System.out.println("nani nani");
+                if (historyItem.equals(item)) {
+                    System.out.println("if");
+                    historyItem.setAmount(historyItem.getAmount() + item.getAmount());
+                    return;
+                }
             }
         }
+        this.getPurchaseHistory().add(item);
     }
 
-    public int totalCartPrice(){
+    public int totalCartPrice() {
         return ItemUtils.calculateTotalPrice(this.getShoppingCart());
     }
+
     public ArrayList<Item> getPurchaseHistory() {
         return purchaseHistory;
     }
@@ -51,7 +55,7 @@ public class BasicMember {
         return "(Basic)" + " " + this.getMemberID() + "-" + this.getName(); // might error
     }
 
-    public String getTierName(){
+    public String getTierName() {
         return "Basic";
     }
 

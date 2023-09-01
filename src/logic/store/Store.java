@@ -29,9 +29,8 @@ public class Store {
         this.initializeStore();
     }
 
-    public void checkOut(BasicMember member) {
-        //TODO:
-
+    public void removeOutOfStockItems(){
+        this.getStock().removeIf(item -> item.getAmount() == 0);
     }
 
     public Item takeRandomItemFromStock() {
@@ -39,6 +38,7 @@ public class Store {
         Item stockItem = this.getStock().get(randomIndex);
         Item item = new Item(stockItem, 1);
         stockItem.setAmount(stockItem.getAmount() - 1);
+        removeOutOfStockItems();
         return item;
     }
 
@@ -47,6 +47,7 @@ public class Store {
         stockItem.setAmount(stockItem.getAmount() - amount);
         Item addingItem = new Item(stockItem, amount);
         member.getShoppingCart().add(addingItem);
+        removeOutOfStockItems();
         return addingItem;
     }
 

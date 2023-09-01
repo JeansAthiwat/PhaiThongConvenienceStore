@@ -127,21 +127,24 @@ public class IO {
                 ArrayList<BasicMember> members = Store.getInstance().getMembers();
                 int choice_member = choiceCheck(0, members.size() - 1);
                 BasicMember member = members.get(choice_member);
-                //TODO: NEW IDEA Change from if else to show all of them but write --NOT AVALABLE FOR Basic,fundamental blabla instead
-                int memberHighestChoice = 1;
+                int memberHighestChoice = 3;
                 System.out.println("<0> Go Back");
                 System.out.println("<1> Delete Member");
-                if (member.getTierName().equals("FundamentalMint")) { //TODO: add DigitalMoney flow
-                    System.out.println("<2> Convert Point to DigitalMoney");
-                    memberHighestChoice = 2;
-                }
-                if (member.getTierName().equals("PhaiThongCasanova")) {
-                    System.out.println("<3> Points Gacha! (exchange 1000 Points to get 1 random Item)");
-                    memberHighestChoice = 3;
-                } else if (member.getTierName().equals("StarvingStudent")) {
-                    System.out.println("<3> Get loan");
-                    System.out.println("<4> Payback loan");
+                System.out.println("<2> Purchase history");
+                System.out.println("<3> Top-up DigitalMoney");
+
+                if (member instanceof FundamentalMintMember) { //TODO: add DigitalMoney flow
+                    System.out.println("<4> Convert Point to DigitalMoney");
                     memberHighestChoice = 4;
+                }
+
+                if (member.getTierName().equals("PhaiThongCasanova")) {
+                    System.out.println("<5> Points Gacha! (exchange 1000 Points to get 1 random Item)");
+                    memberHighestChoice = 5;
+                } else if (member.getTierName().equals("StarvingStudent")) {
+                    System.out.println("<5> Get loan");
+                    System.out.println("<6> Payback loan");
+                    memberHighestChoice = 6;
                 }
                 int choice_memberOption = choiceCheck(0, memberHighestChoice);
                 switch (choice_memberOption) {
@@ -153,20 +156,28 @@ public class IO {
                         System.out.println("Deleted: " + member.toString());
                     }
                     case 2 -> {
+                        System.out.println(ac.showPurchaseHistory(member));
+                    }
+                    case 3 -> {
+                        System.out.println("Enter Amount:");
+                        int amount = sc.nextInt();
+                        System.out.println(ac.topUpDigitalMoneyFlow((FundamentalMintMember) member,amount));
+                    }
+                    case 4 -> {
                         int convertedAmount = ac.convertPointFlow((FundamentalMintMember) member);
                         System.out.println("All Points converted to: " + convertedAmount + "Baht of DigitalMoney");
                     }
-                    case 3 -> {
-                        if (memberHighestChoice == 3) {
-                            System.out.println(ac.gachaFlow(member));
+                    case 5 -> {
+                        if (memberHighestChoice == 5) {
+                            System.out.println(ac.gachaFlow((PhaiThongCasanovaMember) member));
                         } else {
                             System.out.println("Current total loan: " + ((StarvingStudentMember) member).getLoan());
-                            System.out.println("Enter Loan Amount");
+                            System.out.println("Enter Loan Amount:");
                             int amount = sc.nextInt();
                             ac.getLoanFlow((StarvingStudentMember) member, amount);
                         }
                     }
-                    case 4 -> {
+                    case 6 -> {
                         System.out.println("Enter amount to return: ");
                         int amount = sc.nextInt();
                         ac.returnLoanFlow((StarvingStudentMember) member, amount);
@@ -175,11 +186,6 @@ public class IO {
             }
 
         }
-    }
-
-    public static void newItemInput() {
-
-
     }
 
     private static int choiceCheck(int lowestChoice, int HighestChoice) {

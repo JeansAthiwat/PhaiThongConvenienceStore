@@ -114,14 +114,18 @@ public class AppController {
         return null;
     }
 
-    public String showPurchaseHistory(BasicMember member){
+    public String showPurchaseHistory(BasicMember member) {
         String out = "";
         ArrayList<Item> purchaseHistory = member.getPurchaseHistory();
-        for(int i = 0; i< purchaseHistory.size();i++){
-            out += "("+ i + ")" + purchaseHistory.get(i).toString() + "\n";
+        if (purchaseHistory.isEmpty()) {
+            return "NO PURCHASE HISTORY";
+        }
+        for (int i = 0; i < purchaseHistory.size(); i++) {
+            out += "(" + i + ")" + purchaseHistory.get(i).toString() + "\n";
         }
         return out;
     }
+
     public String addItemToShoppingCartFlow(BasicMember member, int itemStockIndex, int amount) {
         ArrayList<Item> stock = Store.getInstance().getStock();
         if (stock.get(itemStockIndex).getAmount() < amount) {
@@ -139,6 +143,28 @@ public class AppController {
         return "Removed from Cart :" + item;
     }
 
+    public String topUpDigitalMoneyFlow(FundamentalMintMember member, int amount){
+        member.setDigitalMoney(member.getDigitalMoney()+amount);
+        return "total DigitalMoney in account : " + member.getDigitalMoney() + "Baht";
+    }
+    public String gachaFlow(PhaiThongCasanovaMember member) {
+        String out = "";
+        Item item = member.giveRandomItemFromStore();
+        return member.getName() + " got the " + item.toString() + " for free!";
+    }
+
+    public String getLoanFlow(StarvingStudentMember member, int amount) {
+        boolean isSuccessful = member.loanMoney(amount);
+        if (isSuccessful) return "Successfully Loaned " + amount + " Baht to " + member.getName();
+        return "Cannot Loan more money than the Max Loan limit (maximum:" + StarvingStudentMember.MAX_LOAN + "Baht)";
+    }
+
+    public String returnLoanFlow(StarvingStudentMember member, int amount) {
+        boolean isSuccessful = member.returnLoan(amount);
+        if (isSuccessful) return "Successfully Return " + amount + "Worth of loan";
+        return "Cannot return loan because the member doesn't have enough DigitalMoney in account";
+    }
+
     public String checkOutWithCashFlow(BasicMember member, int givenMoney) { //todo STUDENT:
         int totalCartPrice = member.totalCartPrice();
         if (totalCartPrice <= givenMoney) {
@@ -148,24 +174,6 @@ public class AppController {
         } else {
             return "Not enough Money";
         }
-    }
-
-    public String gachaFlow(BasicMember member) {
-        String out = "";
-        Item item = ((PhaiThongCasanovaMember) member).giveRandomItemFromStore();
-        return "Member got the" + item.toString() + "for free!";
-    }
-
-    public String getLoanFlow(StarvingStudentMember member, int amount) {
-        boolean isSuccessful = member.loanMoney(amount);
-        if (isSuccessful) return "Successfully Loaned " + amount + " Baht to " + member.getName();
-        return "Cannot Loan more money than the Max Loan limit (maximum:" + StarvingStudentMember.MAX_LOAN +"Baht)";
-    }
-
-    public String returnLoanFlow(StarvingStudentMember member, int amount){
-            boolean isSuccessful = member.returnLoan(amount);
-            if(isSuccessful) return "Successfully Return " + amount + "Worth of loan";
-            return "Cannot return loan because the member doesn't have enough DigitalMoney in account";
     }
 
     public String checkoutWithDigitalMoneyFlow(FundamentalMintMember member) { //todo STUDENT:
