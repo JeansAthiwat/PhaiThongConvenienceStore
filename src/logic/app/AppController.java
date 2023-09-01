@@ -149,7 +149,13 @@ public class AppController {
     }
     public String gachaFlow(PhaiThongCasanovaMember member) {
         String out = "";
+        if(member.getPoint() < 1000){
+            return "Not Enough Points";
+        }
         Item item = member.giveRandomItemFromStore();
+        if(item == null){
+            return "No item in Stock";
+        }
         return member.getName() + " got the " + item.toString() + " for free!";
     }
 

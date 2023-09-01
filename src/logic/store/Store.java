@@ -34,6 +34,9 @@ public class Store {
     }
 
     public Item takeRandomItemFromStock() {
+        if(this.getStock().isEmpty()){
+            return null;
+        }
         int randomIndex = (int) Math.floor(Math.random() * this.getStock().size());
         Item stockItem = this.getStock().get(randomIndex);
         Item item = new Item(stockItem, 1);

@@ -133,7 +133,7 @@ public class IO {
                 System.out.println("<2> Purchase history");
                 System.out.println("<3> Top-up DigitalMoney");
 
-                if (member instanceof FundamentalMintMember) { //TODO: add DigitalMoney flow
+                if (member instanceof FundamentalMintMember) {
                     System.out.println("<4> Convert Point to DigitalMoney");
                     memberHighestChoice = 4;
                 }
