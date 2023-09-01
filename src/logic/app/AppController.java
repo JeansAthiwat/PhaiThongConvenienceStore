@@ -88,10 +88,10 @@ public class AppController {
         Store.getInstance().getMembers().remove(member);
     }
 
-    public int convertPointFlow(BasicMember member) {
-        int digitalMoneyBefore = ((FundamentalMintMember) member).getDigitalMoney();
-        ((FundamentalMintMember) member).convertPoint();
-        return ((FundamentalMintMember) member).getDigitalMoney() - digitalMoneyBefore;
+    public int convertPointFlow(FundamentalMintMember member) {
+        int digitalMoneyBefore = member.getDigitalMoney();
+        member.convertPoint();
+        return member.getDigitalMoney() - digitalMoneyBefore;
     }
 
     public String showMemberList() {
@@ -114,6 +114,14 @@ public class AppController {
         return null;
     }
 
+    public String showPurchaseHistory(BasicMember member){
+        String out = "";
+        ArrayList<Item> purchaseHistory = member.getPurchaseHistory();
+        for(int i = 0; i< purchaseHistory.size();i++){
+            out += "("+ i + ")" + purchaseHistory.get(i).toString() + "\n";
+        }
+        return out;
+    }
     public String addItemToShoppingCartFlow(BasicMember member, int itemStockIndex, int amount) {
         ArrayList<Item> stock = Store.getInstance().getStock();
         if (stock.get(itemStockIndex).getAmount() < amount) {

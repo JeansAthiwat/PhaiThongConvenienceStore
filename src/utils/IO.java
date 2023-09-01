@@ -153,7 +153,7 @@ public class IO {
                         System.out.println("Deleted: " + member.toString());
                     }
                     case 2 -> {
-                        int convertedAmount = ac.convertPointFlow(member);
+                        int convertedAmount = ac.convertPointFlow((FundamentalMintMember) member);
                         System.out.println("All Points converted to: " + convertedAmount + "Baht of DigitalMoney");
                     }
                     case 3 -> {
