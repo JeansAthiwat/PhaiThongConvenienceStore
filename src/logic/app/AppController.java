@@ -167,7 +167,7 @@ public class AppController {
 
     public String returnLoanFlow(StarvingStudentMember member, int amount) {
         boolean isSuccessful = member.returnLoan(amount);
-        if (isSuccessful) return "Successfully Return " + amount + "Worth of loan";
+        if (isSuccessful) return "Successfully Return " + amount + " Baht of loan";
         return "Cannot return loan because the member doesn't have enough DigitalMoney in account";
     }
 

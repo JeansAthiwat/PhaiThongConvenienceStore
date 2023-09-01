@@ -161,7 +161,7 @@ public class IO {
                     case 3 -> {
                         System.out.println("Enter Amount:");
                         int amount = sc.nextInt();
-                        System.out.println(ac.topUpDigitalMoneyFlow((FundamentalMintMember) member,amount));
+                        System.out.println(ac.topUpDigitalMoneyFlow((FundamentalMintMember) member, amount));
                     }
                     case 4 -> {
                         int convertedAmount = ac.convertPointFlow((FundamentalMintMember) member);
@@ -174,18 +174,20 @@ public class IO {
                             System.out.println("Current total loan: " + ((StarvingStudentMember) member).getLoan());
                             System.out.println("Enter Loan Amount:");
                             int amount = sc.nextInt();
-                            ac.getLoanFlow((StarvingStudentMember) member, amount);
+                            System.out.println(ac.getLoanFlow((StarvingStudentMember) member, amount));
                         }
                     }
                     case 6 -> {
                         System.out.println("Enter amount to return: ");
                         int amount = sc.nextInt();
-                        ac.returnLoanFlow((StarvingStudentMember) member, amount);
+                        System.out.println(ac.returnLoanFlow((StarvingStudentMember) member, amount));
+
                     }
                 }
             }
 
         }
+        System.out.println("=================================================================");
     }
 
     private static int choiceCheck(int lowestChoice, int HighestChoice) {
