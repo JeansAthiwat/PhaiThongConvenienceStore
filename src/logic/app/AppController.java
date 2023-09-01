@@ -24,11 +24,11 @@ public class AppController {
         return instance;
     }
 
-    public Item addNewItemToStockFlow(String name, int price, int amount) {
-        //TODO
+    public String addNewItemToStockFlow(String name, int price, int amount) {
+        if(amount < 1) return "Incorrect Item Amount!";
         Item newItem = new Item(name, price, amount);
         Store.getInstance().addItemToStock(newItem);
-        return newItem;
+        return "ADDED - " + newItem;
     }
 
     public String showStockFlow() {
@@ -90,15 +90,14 @@ public class AppController {
         return out;
     }
 
-
-    public BasicMember getMemberByID(int memberID) {
-        ArrayList<BasicMember> members = Store.getInstance().getMembers();
-        for (BasicMember member : members) {
-            if (member.getMemberID() == memberID) {
-                return member;
-            }
+    public String showItemsInCart(BasicMember member){
+        ArrayList<Item> shoppingCart = member.getShoppingCart();
+        String out = "";
+        for (int i = 0; i < shoppingCart.size(); i++) {
+            Item currentItem = shoppingCart.get(i);
+            out += "(" + i + ") x" + currentItem.getAmount() + "  :" + currentItem.getName() + " (" + currentItem.getPrice() + " Baht/item)" + "\n";
         }
-        return null;
+        return out;
     }
 
     public String showPurchaseHistory(BasicMember member) {

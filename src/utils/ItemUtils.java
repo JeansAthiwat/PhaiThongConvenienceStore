@@ -19,14 +19,4 @@ public class ItemUtils {
         return (int) Math.ceil(totalPrice*(1-discountPercent));
     }
 
-    public static String showItemsInCart(BasicMember member){
-        ArrayList<Item> shoppingCart = member.getShoppingCart();
-        String out = "";
-        for (int i = 0; i < shoppingCart.size(); i++) {
-            Item currentItem = shoppingCart.get(i);
-            out += "(" + i + ") x" + currentItem.getAmount() + "  :" + currentItem.getName() + " (" + currentItem.getPrice() + " Baht/item)" + "\n";
-        }
-        return out;
-    }
-
 }

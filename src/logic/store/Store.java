@@ -29,6 +29,16 @@ public class Store {
         this.initializeStore();
     }
 
+    public BasicMember getMemberByID(int memberID) {
+        ArrayList<BasicMember> members = Store.getInstance().getMembers();
+        for (BasicMember member : members) {
+            if (member.getMemberID() == memberID) {
+                return member;
+            }
+        }
+        return null;
+    }
+
     public void removeOutOfStockItems(){
         this.getStock().removeIf(item -> item.getAmount() == 0);
     }
