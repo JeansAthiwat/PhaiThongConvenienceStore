@@ -124,14 +124,15 @@ public class IO {
                 ArrayList<BasicMember> members = Store.getInstance().getMembers();
                 int choice_member = choiceCheck(0, members.size() - 1);
                 BasicMember member = members.get(choice_member);
-                int memberHighestChoice = 3;
+                int memberHighestChoice = 2;
                 System.out.println("-------------------------Member's Option-------------------------");
                 System.out.println("<0> Go Back");
                 System.out.println("<1> Delete Member");
                 System.out.println("<2> Purchase History");
-                System.out.println("<3> Top-Up DigitalMoney");
+
 
                 if (member instanceof FundamentalMintMember) {
+                    System.out.println("<3> Top-Up DigitalMoney");
                     System.out.println("<4> Convert Point To DigitalMoney");
                     memberHighestChoice = 4;
                 }
