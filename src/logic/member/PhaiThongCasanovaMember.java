@@ -11,7 +11,8 @@ public class PhaiThongCasanovaMember extends FundamentalMintMember {
 
     @Override
     public String toString() {
-        return "(PhaiThongCasanova)" + " " + this.getMemberID() + "-" + this.getName() + " DigitalMoney: " + this.getDigitalMoney() + " Points: " + getPoint();
+        return "(PhaiThongCasanova)" + " " + getMemberID() + "-" + getName() + " DMoney: "
+                + getDigitalMoney() + " Pts: " + getPoint();
     }
     @Override
     public String getTierName() {

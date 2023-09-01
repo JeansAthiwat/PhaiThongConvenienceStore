@@ -33,17 +33,12 @@ public class AppController {
 
     public String showStockFlow() {
         ArrayList<Item> stock = Store.getInstance().getStock();
-        String out = "   ---===Item(s) in stock===--- \n";
+        String out = "                  ---===Item(s) in stock===--- \n";
         for (int i = 0; i < stock.size(); i++) {
             Item currentItem = stock.get(i);
             out += "(" + i + ") " + currentItem + " (" + currentItem.getPrice() + " Baht/item)" + "\n";
-            //out += "(" + i + ") x" + currentItem.getAmount() + "  :" + currentItem.getName() + " (" + currentItem.getPrice() + " Baht/item)" + "\n";
         }
         return out;
-    }
-
-    public void memberShoppingFlow() {
-        //TODO
     }
 
     public boolean memberExist(int memberID) {
@@ -58,8 +53,8 @@ public class AppController {
         return isExist;
     }
 
-    public boolean signUpMemberFlow(int member_type, String memberName, int memberID, int memberDigitalMoney) {
-        //TODO
+    public String signUpMemberFlow(int member_type, String memberName, int memberID, int memberDigitalMoney) {
+        if(memberID < 0) return "Invalid ID! (must be zero or positive int)";
         BasicMember member = null;
         switch (member_type) {
             case 0 -> member = new BasicMember(memberName, memberID);
@@ -69,18 +64,10 @@ public class AppController {
         }
         Store store = Store.getInstance();
         if (member == null || store.isMember(member)) {
-            return false;
+            return "Member Already Exist!!";
         } else {
             store.getMembers().add(member);
-            return true;
-        }
-    }
-
-    public void manageMemberFlow(int choice_member) {
-        //TODO
-        BasicMember member = Store.getInstance().getMembers().get(choice_member);
-        if (member.getTierName().equals("Basic")) {
-
+            return "New Member Created";
         }
     }
 
@@ -130,6 +117,8 @@ public class AppController {
         ArrayList<Item> stock = Store.getInstance().getStock();
         if (stock.get(itemStockIndex).getAmount() < amount) {
             return "Cannot add more than what the stock has.";
+        } else if (amount <= 0) {
+            return "Incorrect Amount!";
         } else {
             return "Added to Cart :" + Store.getInstance().addItemToShoppingCart(member, itemStockIndex, amount);
         }
@@ -143,17 +132,18 @@ public class AppController {
         return "Removed from Cart :" + item;
     }
 
-    public String topUpDigitalMoneyFlow(FundamentalMintMember member, int amount){
-        member.setDigitalMoney(member.getDigitalMoney()+amount);
+    public String topUpDigitalMoneyFlow(FundamentalMintMember member, int amount) {
+        member.setDigitalMoney(member.getDigitalMoney() + amount);
         return "total DigitalMoney in account : " + member.getDigitalMoney() + "Baht";
     }
+
     public String gachaFlow(PhaiThongCasanovaMember member) {
         String out = "";
-        if(member.getPoint() < 1000){
+        if (member.getPoint() < 1000) {
             return "Not Enough Points";
         }
         Item item = member.giveRandomItemFromStore();
-        if(item == null){
+        if (item == null) {
             return "No item in Stock";
         }
         return member.getName() + " got the " + item.toString() + " for free!";

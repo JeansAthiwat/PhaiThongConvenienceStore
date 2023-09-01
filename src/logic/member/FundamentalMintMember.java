@@ -27,7 +27,8 @@ public class FundamentalMintMember extends BasicMember {
     @Override
     public String toString() {
         //return "(" + this.getClass().getSimpleName() + ")" + " ID:" + this.getMemberID() + " Name:" + this.getName() + " DigitalMoney in Account: " + this.getDigitalMoney() + " totalPoint: " + getPoint(); // might error
-        return "(FundamentalMint)" + " " + this.getMemberID() + "-" + this.getName() + " DigitalMoney: " + this.getDigitalMoney() + " Points: " + getPoint(); // might error
+        return "(FundamentalMint)" + " " + getMemberID() + "-" + getName() + " DMoney: "
+                + getDigitalMoney() + " Pts: " + getPoint();
     }
 
     @Override

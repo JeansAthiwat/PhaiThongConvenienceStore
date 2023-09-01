@@ -61,7 +61,6 @@ public class Item {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        System.out.println("dud");
         Item item = (Item) o;
         return Objects.equals(getName(), item.getName());
     }

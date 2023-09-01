@@ -14,7 +14,9 @@ public class StarvingStudentMember extends FundamentalMintMember {
 
     @Override
     public String toString() {
-        return "(StarvingStudent)" + " " + getMemberID() + "-" + getName() + " DigitalMoney: " + getDigitalMoney() + " Points: " + getPoint() + " Loans: " + getLoan();
+        return "(StarvingStudent)" + " " + getMemberID() + "-" + getName() + " DMoney: "
+                + getDigitalMoney() + " Pts: " + getPoint() + " Loans: " + getLoan();
+
     }
 
     @Override
