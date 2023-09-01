@@ -9,13 +9,6 @@ public class FundamentalMintMember extends BasicMember {
     protected double discountPercent; //?
     private int digitalMoney;
 
-    public FundamentalMintMember(String name, int memberID) {
-        super(name, memberID);
-        this.setPoint(0);
-        this.setDigitalMoney(0);
-        this.discountPercent = 0.05;
-    }
-
     public FundamentalMintMember(String name, int memberID, int point, int digitalMoney) {
         super(name, memberID);
         this.setPoint(point);
@@ -23,10 +16,8 @@ public class FundamentalMintMember extends BasicMember {
         this.discountPercent = 0.05;
     }
 
-    //TODO : override string and show digitalMoney left
     @Override
     public String toString() {
-        //return "(" + this.getClass().getSimpleName() + ")" + " ID:" + this.getMemberID() + " Name:" + this.getName() + " DigitalMoney in Account: " + this.getDigitalMoney() + " totalPoint: " + getPoint(); // might error
         return "(FundamentalMint)" + " " + getMemberID() + "-" + getName() + " DMoney: "
                 + getDigitalMoney() + " Pts: " + getPoint();
     }
