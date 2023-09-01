@@ -40,7 +40,14 @@ public class IO {
         System.out.println("=================================================================");
         switch (choice_home) { // Do the flow for selected option
             case 0 -> { // Add Items To Stock
-                this.addItemsToStockFlow();
+                System.out.println("                  ---===Creating New Item===---");
+                System.out.println("*Enter Item Name : ");
+                String name = sc.next();
+                System.out.println("*Enter Item Price (use old price if existed) :");
+                int price = Integer.parseInt(sc.next());
+                System.out.println("*Enter Amount To Add :");
+                int amount = Integer.parseInt(sc.next());
+                System.out.println(ac.addNewItemToStockFlow(name, price, amount));
             }
             case 1 -> { // Check Stock
                 System.out.println(ac.showStockFlow());
@@ -56,18 +63,19 @@ public class IO {
                 }
                 System.out.println("Current Customer: " + member);
                 System.out.println("In Shopping Cart: \n" + ac.showItemsInCart(member));
-                int maxChoice = (member instanceof FundamentalMintMember) ? 3 : 2; // maxChoice will be '3' if FundamentalMintMember (they can pay with digitalMoney)
+                int maxChoice = (member instanceof FundamentalMintMember) ? 3 : 2;
                 while (true) {
                     System.out.println("-------------------------Shopping Option-------------------------");
                     System.out.println("<0> Add Items To Cart");
                     System.out.println("<1> Remove Items From Cart");
                     System.out.println("<2> CheckOut With Cash");
-                    if (maxChoice == 3) System.out.println("<3> CheckOut With Digital Money"); // maxChoice '3' if FundamentalMintMember+ (they can pay with digitalMoney)
+                    if (maxChoice == 3)
+                        System.out.println("<3> CheckOut With Digital Money"); // FundamentalMintMember can pay with digitalMoney
                     int choice_member = choiceCheck(0, maxChoice);
 
                     if (choice_member == 0) { //let member pick item from Stock to add to the member's ShoppingCart
                         System.out.println(ac.showStockFlow());
-                        System.out.println("*Pick Item To Add To Cart : "); //TODO------------------------------------------------------
+                        System.out.println("*Pick Item To Add To Cart : ");
                         int choice_stockItem = choiceCheck(0, Store.getInstance().getStock().size() - 1);
                         System.out.println("*Amount To Add :");
                         int amountToAdd = sc.nextInt();
@@ -149,8 +157,7 @@ public class IO {
 
                     }
                     case 1 -> {
-                        ac.deleteMemberFlow(member);
-                        System.out.println("Deleted: " + member.toString());
+                        System.out.println(ac.deleteMemberFlow(member));
                     }
                     case 2 -> {
                         System.out.println(ac.showPurchaseHistory(member));
@@ -161,8 +168,7 @@ public class IO {
                         System.out.println(ac.topUpDigitalMoneyFlow((FundamentalMintMember) member, amount));
                     }
                     case 4 -> {
-                        int convertedAmount = ac.convertPointFlow((FundamentalMintMember) member);
-                        System.out.println("All Points Converted To: " + convertedAmount + "Baht Of DigitalMoney");
+                        System.out.println(ac.convertPointFlow((FundamentalMintMember) member));
                     }
                     case 5 -> {
                         if (memberHighestChoice == 5) {
@@ -178,7 +184,6 @@ public class IO {
                         System.out.println("*Enter Amount To Return: ");
                         int amount = sc.nextInt();
                         System.out.println(ac.returnLoanFlow((StarvingStudentMember) member, amount));
-
                     }
                 }
             }
@@ -196,14 +201,4 @@ public class IO {
         return choice;
     }
 
-    private void addItemsToStockFlow() {
-        System.out.println("                  ---===Creating New Item===---");
-        System.out.println("*Enter Item Name : ");
-        String name = sc.next();
-        System.out.println("*Enter Item Price (use old price if existed) :");
-        int price = Integer.parseInt(sc.next());
-        System.out.println("*Enter Amount To Add :");
-        int amount = Integer.parseInt(sc.next());
-        System.out.println(ac.addNewItemToStockFlow(name, price, amount));
-    }
 }

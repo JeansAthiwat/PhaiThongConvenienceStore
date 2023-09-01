@@ -71,14 +71,16 @@ public class AppController {
         }
     }
 
-    public void deleteMemberFlow(BasicMember member) {
+    public String deleteMemberFlow(BasicMember member) {
         Store.getInstance().getMembers().remove(member);
+       return "Deleted: " + member;
     }
 
-    public int convertPointFlow(FundamentalMintMember member) {
+    public String convertPointFlow(FundamentalMintMember member) {
         int digitalMoneyBefore = member.getDigitalMoney();
         member.convertPoint();
-        return member.getDigitalMoney() - digitalMoneyBefore;
+        int convertedAmount = member.getDigitalMoney() - digitalMoneyBefore;
+        return "All Points Converted To: " + convertedAmount + "Baht Of DigitalMoney";
     }
 
     public String showMemberList() {
