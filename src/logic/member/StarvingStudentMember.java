@@ -33,7 +33,7 @@ public class StarvingStudentMember extends FundamentalMintMember {
     }
 
     public boolean loanMoney(int amount) {
-        if (this.getLoan() + amount <= MAX_LOAN) {
+        if ((this.getLoan() + amount <= MAX_LOAN) && (Store.getInstance().getStoreMoney() >= amount)) {
             Store store = Store.getInstance();
             store.setStoreMoney(store.getStoreMoney() - amount);
             this.setDigitalMoney(this.getDigitalMoney() + amount);

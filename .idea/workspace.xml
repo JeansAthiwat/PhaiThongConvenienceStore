@@ -7,6 +7,7 @@
     <list default="true" id="23232d4f-9817-4c64-a82e-dafb0434cf9b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/logic/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/app/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/member/StarvingStudentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/StarvingStudentMember.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/IO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

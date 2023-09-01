@@ -25,7 +25,7 @@ public class AppController {
     }
 
     public String addNewItemToStockFlow(String name, int price, int amount) {
-        if(amount < 1) return "Incorrect Item Amount!";
+        if (amount < 1) return "Incorrect Item Amount!";
         Item newItem = new Item(name, price, amount);
         Store.getInstance().addItemToStock(newItem);
         return "ADDED - " + newItem;
@@ -54,7 +54,7 @@ public class AppController {
     }
 
     public String signUpMemberFlow(int member_type, String memberName, int memberID, int memberDigitalMoney) {
-        if(memberID < 0) return "Invalid ID! (must be zero or positive int)";
+        if (memberID < 0) return "Invalid ID! (must be zero or positive int)";
         BasicMember member = null;
         switch (member_type) {
             case 0 -> member = new BasicMember(memberName, memberID);
@@ -73,7 +73,7 @@ public class AppController {
 
     public String deleteMemberFlow(BasicMember member) {
         Store.getInstance().getMembers().remove(member);
-       return "Deleted: " + member;
+        return "Deleted: " + member;
     }
 
     public String convertPointFlow(FundamentalMintMember member) {
@@ -92,7 +92,7 @@ public class AppController {
         return out;
     }
 
-    public String showItemsInCart(BasicMember member){
+    public String showItemsInCart(BasicMember member) {
         ArrayList<Item> shoppingCart = member.getShoppingCart();
         String out = "";
         for (int i = 0; i < shoppingCart.size(); i++) {
@@ -152,8 +152,11 @@ public class AppController {
 
     public String getLoanFlow(StarvingStudentMember member, int amount) {
         boolean isSuccessful = member.loanMoney(amount);
-        if (isSuccessful) return "Successfully Loaned " + amount + " Baht to " + member.getName();
-        return "Cannot Loan more money than the Max Loan limit (maximum:" + StarvingStudentMember.MAX_LOAN + "Baht)";
+        if (isSuccessful) {
+            return "Successfully Loaned " + amount + " Baht to " + member.getName()
+                    + ". Store Money Left:" + Store.getInstance().getStoreMoney() + " Baht";
+        }
+        return "-Store don't have Enough Money to Loan \n *OR* \n-Loan Amount Exceed the Member's limit (maximum:" + StarvingStudentMember.MAX_LOAN + "Baht)";
     }
 
     public String returnLoanFlow(StarvingStudentMember member, int amount) {
@@ -167,6 +170,7 @@ public class AppController {
         if (totalCartPrice <= givenMoney) {
             member.checkout();
             int changeAmount = givenMoney - totalCartPrice;
+            Store.getInstance().setStoreMoney(Store.getInstance().getStoreMoney() + totalCartPrice);
             return "Paid for all item in Cart- Change to customer:" + changeAmount + "Baht";
         } else {
             return "Not enough Money";
@@ -178,6 +182,7 @@ public class AppController {
         if (totalCartPrice <= member.getDigitalMoney()) {
             member.setDigitalMoney(member.getDigitalMoney() - totalCartPrice);
             member.checkout(); // remove item from member's Cart and put to HistoryArray
+            Store.getInstance().setStoreMoney(Store.getInstance().getStoreMoney() + totalCartPrice);
             return "Paid for all item in Cart. DigitalMoney Left :" + member.getDigitalMoney() + "Baht";
         } else {
             return "Not enough DigitalMoney in account";

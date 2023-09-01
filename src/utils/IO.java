@@ -14,7 +14,6 @@ import java.util.Scanner;
 public class IO {
     private static final Scanner sc = new Scanner(System.in);
     private static IO instance = null;
-    //private static final AppController appController = new AppController();
     private static AppController ac;
 
 
@@ -31,6 +30,7 @@ public class IO {
 
     public void home() {
         System.out.println("============================HOME PAGE============================");
+        System.out.println("                 ---*Store Balance : "+Store.getInstance().getStoreMoney() + " Baht*---");
         System.out.println("<0> Add Items To Stock");
         System.out.println("<1> Check Stock");
         System.out.println("<2> Select Member To Buy Items");
