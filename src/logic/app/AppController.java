@@ -79,15 +79,25 @@ public class AppController {
     public void manageMemberFlow(int choice_member) {
         //TODO
         BasicMember member = Store.getInstance().getMembers().get(choice_member);
-        if(member.getTierName().equals("Basic")){
+        if (member.getTierName().equals("Basic")) {
 
         }
     }
 
-    public String showMemberList(){
+    public void deleteMemberFlow(BasicMember member) {
+        Store.getInstance().getMembers().remove(member);
+    }
+
+    public int convertPointFlow(BasicMember member) {
+        int digitalMoneyBefore = ((FundamentalMintMember) member).getDigitalMoney();
+        ((FundamentalMintMember) member).convertPoint();
+        return ((FundamentalMintMember) member).getDigitalMoney() - digitalMoneyBefore;
+    }
+
+    public String showMemberList() {
         String out = "";
         ArrayList<BasicMember> members = Store.getInstance().getMembers();
-        for(int i = 0; i< members.size();i++){
+        for (int i = 0; i < members.size(); i++) {
             out += "(" + i + ")" + members.get(i).toString() + "\n";
         }
         return out;
@@ -130,6 +140,24 @@ public class AppController {
         } else {
             return "Not enough Money";
         }
+    }
+
+    public String gachaFlow(BasicMember member) {
+        String out = "";
+        Item item = ((PhaiThongCasanovaMember) member).giveRandomItemFromStore();
+        return "Member got the" + item.toString() + "for free!";
+    }
+
+    public String getLoanFlow(StarvingStudentMember member, int amount) {
+        boolean isSuccessful = member.loanMoney(amount);
+        if (isSuccessful) return "Successfully Loaned " + amount + " Baht to " + member.getName();
+        return "Cannot Loan more money than the Max Loan limit (maximum:" + StarvingStudentMember.MAX_LOAN +"Baht)";
+    }
+
+    public String returnLoanFlow(StarvingStudentMember member, int amount){
+            boolean isSuccessful = member.returnLoan(amount);
+            if(isSuccessful) return "Successfully Return " + amount + "Worth of loan";
+            return "Cannot return loan because the member doesn't have enough DigitalMoney in account";
     }
 
     public String checkoutWithDigitalMoneyFlow(FundamentalMintMember member) { //todo STUDENT:

@@ -51,6 +51,8 @@ public class FundamentalMintMember extends BasicMember {
         int totalPoint = this.getPoint();
         int totalMoney = totalPoint / 100;
         this.setPoint(this.getPoint() - totalMoney * 100);
+        this.setDigitalMoney(this.getDigitalMoney() + totalMoney);
+
     }
 
     public int getPoint() {

@@ -3,7 +3,7 @@ package logic.member;
 import logic.store.Store;
 
 public class StarvingStudentMember extends FundamentalMintMember {
-    static final int MAX_LOAN = 1920;
+    public static final int MAX_LOAN = 1920;
     int loan;
 
     public StarvingStudentMember(String name, int memberID, int point, int digitalMoney) {
@@ -22,6 +22,14 @@ public class StarvingStudentMember extends FundamentalMintMember {
         return "StarvingStudent";
     }
 
+    @Override
+    public void convertPoint() {
+        int totalPoint = this.getPoint();
+        int totalMoney = totalPoint / 75;
+        this.setPoint(this.getPoint() - totalMoney * 75);
+        this.setDigitalMoney(this.getDigitalMoney() + totalMoney);
+    }
+
     public boolean loanMoney(int amount) {
         if (this.getLoan() + amount <= MAX_LOAN) {
             Store store = Store.getInstance();
@@ -33,11 +41,15 @@ public class StarvingStudentMember extends FundamentalMintMember {
         return false;
     }
 
-    public void returnLoan(int amount) {
-        Store store = Store.getInstance();
-        store.setStoreMoney(store.getStoreMoney() + amount);
-        this.setDigitalMoney(this.getDigitalMoney() - amount);
-        this.setLoan(this.getLoan() - amount);
+    public boolean returnLoan(int amount) {
+        if (this.getDigitalMoney() >= amount) {
+            Store store = Store.getInstance();
+            store.setStoreMoney(store.getStoreMoney() + amount);
+            this.setDigitalMoney(this.getDigitalMoney() - amount);
+            this.setLoan(this.getLoan() - amount);
+            return true;
+        }
+        return false;
     }
 
     public int getLoan() {
@@ -50,4 +62,6 @@ public class StarvingStudentMember extends FundamentalMintMember {
         }
         this.loan = loan;
     }
+
+
 }

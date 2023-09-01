@@ -4,6 +4,7 @@ import logic.app.AppController;
 import logic.member.BasicMember;
 import logic.member.FundamentalMintMember;
 import logic.member.PhaiThongCasanovaMember;
+import logic.member.StarvingStudentMember;
 import logic.store.Item;
 import logic.store.Store;
 
@@ -130,7 +131,7 @@ public class IO {
                 int memberHighestChoice = 1;
                 System.out.println("<0> Go Back");
                 System.out.println("<1> Delete Member");
-                if (member.getTierName().equals("FundamentalMint")) {
+                if (member.getTierName().equals("FundamentalMint")) { //TODO: add DigitalMoney flow
                     System.out.println("<2> Convert Point to DigitalMoney");
                     memberHighestChoice = 2;
                 }
@@ -142,16 +143,34 @@ public class IO {
                     System.out.println("<4> Payback loan");
                     memberHighestChoice = 4;
                 }
-
-                int choice_memberOption = choiceCheck(0,memberHighestChoice);
+                int choice_memberOption = choiceCheck(0, memberHighestChoice);
                 switch (choice_memberOption) {
                     case 0 -> {
-                    }
 
-                    case 1 -> ac.deleteMemberFlow(member);
-                    case 2 -> ac.convertPointFlow(member);
-                    case 3 -> ac.gachaFlow(member);
-                    case 4 -> ac.get
+                    }
+                    case 1 -> {
+                        ac.deleteMemberFlow(member);
+                        System.out.println("Deleted: " + member.toString());
+                    }
+                    case 2 -> {
+                        int convertedAmount = ac.convertPointFlow(member);
+                        System.out.println("All Points converted to: " + convertedAmount + "Baht of DigitalMoney");
+                    }
+                    case 3 -> {
+                        if (memberHighestChoice == 3) {
+                            System.out.println(ac.gachaFlow(member));
+                        } else {
+                            System.out.println("Current total loan: " + ((StarvingStudentMember) member).getLoan());
+                            System.out.println("Enter Loan Amount");
+                            int amount = sc.nextInt();
+                            ac.getLoanFlow((StarvingStudentMember) member, amount);
+                        }
+                    }
+                    case 4 -> {
+                        System.out.println("Enter amount to return: ");
+                        int amount = sc.nextInt();
+                        ac.returnLoanFlow((StarvingStudentMember) member, amount);
+                    }
                 }
             }
 

@@ -23,11 +23,11 @@ public class PhaiThongCasanovaMember extends FundamentalMintMember {
         int totalPoint = this.getPoint();
         int totalMoney = totalPoint/50;
         this.setPoint(this.getPoint()-totalMoney*50);
-        super.convertPoint();
+        this.setDigitalMoney(this.getDigitalMoney() + totalMoney);
     }
 
     public Item giveRandomItemFromStore(){ // randomly gives one item in the store to this guy for free
-        Item item = Store.getInstance().giveRandomItemFromStock();
+        Item item = Store.getInstance().takeRandomItemFromStock();
         this.addToPurchaseHistory(item);
         return item;
     }
