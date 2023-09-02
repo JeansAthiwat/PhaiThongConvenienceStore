@@ -147,7 +147,7 @@ public class AppController {
         if (item == null) {
             return "No item in Stock";
         }
-        return member.getName() + " got the " + item.toString() + " for free!";
+        return member.getName() + " got the " + item.toString() + " for just 1000 Points!";
     }
 
     public String getLoanFlow(StarvingStudentMember member, int amount) {

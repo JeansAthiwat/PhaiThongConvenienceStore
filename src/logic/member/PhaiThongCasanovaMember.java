@@ -10,27 +10,32 @@ public class PhaiThongCasanovaMember extends FundamentalMintMember {
     }
 
     @Override
+    public void convertPoint() {
+        int totalPoint = this.getPoint();
+        int totalMoney = totalPoint / 50;
+        this.setPoint(this.getPoint() - totalMoney * 50);
+        this.setDigitalMoney(this.getDigitalMoney() + totalMoney);
+    }
+
+    @Override
     public String toString() {
         return "(PhaiThongCasanova)" + " " + getMemberID() + "-" + getName() + " DMoney: "
                 + getDigitalMoney() + " Pts: " + getPoint();
     }
+
     @Override
     public String getTierName() {
         return "PhaiThongCasanova";
     }
 
-    @Override
-    public void convertPoint() {
-        int totalPoint = this.getPoint();
-        int totalMoney = totalPoint/50;
-        this.setPoint(this.getPoint()-totalMoney*50);
-        this.setDigitalMoney(this.getDigitalMoney() + totalMoney);
-    }
 
-    public Item giveRandomItemFromStore(){ // randomly gives one item in the store to this guy for free
+    public Item giveRandomItemFromStore() { // randomly gives one item in the store to this guy for free
         Item item = Store.getInstance().takeRandomItemFromStock();
+        if(item == null){
+            return null;
+        }
+        this.setPoint(this.getPoint()-1000);
         this.addToPurchaseHistory(item);
         return item;
     }
-//TODO
 }
