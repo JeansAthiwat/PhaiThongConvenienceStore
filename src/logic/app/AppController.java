@@ -17,7 +17,7 @@ public class AppController {
 
     }
 
-    public AppController getInstance() {
+    public static AppController getInstance() {
         if (instance == null) {
             instance = new AppController();
         }
@@ -167,7 +167,7 @@ public class AppController {
         return "Cannot return loan because the member doesn't have enough DigitalMoney in account";
     }
 
-    public String checkOutWithCashFlow(BasicMember member, int givenMoney) { //todo STUDENT:
+    public String checkOutWithCashFlow(BasicMember member, int givenMoney) { //todo STUDENT: Fill code in this method
         int totalCartPrice = member.totalCartPrice();
         if (totalCartPrice <= givenMoney) {
             member.checkout();
@@ -179,7 +179,7 @@ public class AppController {
         }
     }
 
-    public String checkoutWithDigitalMoneyFlow(FundamentalMintMember member) { //todo STUDENT:
+    public String checkoutWithDigitalMoneyFlow(FundamentalMintMember member) { //todo STUDENT: Fill code in this method
         int totalCartPrice = member.totalCartPrice();
         if (totalCartPrice <= member.getDigitalMoney()) {
             member.setDigitalMoney(member.getDigitalMoney() - totalCartPrice);
@@ -190,4 +190,5 @@ public class AppController {
             return "Not enough DigitalMoney in account";
         }
     }
+
 }

@@ -115,20 +115,22 @@ public class Store {
     }
 
     private void initializeStore(int storeMoney) {
-        this.getMembers().add(new BasicMember("NormieJeans", 1));
-        this.getMembers().get(0).getShoppingCart().add(new Item("GT 560", 50, 1));
-        this.getMembers().add(new FundamentalMintMember("CHADJeans", 2, 0, 1000));
-        this.getMembers().get(1).getShoppingCart().add(new Item("RTX4090", 5, 10));
-
-        this.getMembers().add(new StarvingStudentMember("Soyjak", 555445,0,5));
-        this.getMembers().add(new PhaiThongCasanovaMember("Peet", 123456,5000,9999999));
-        this.getMembers().add(new PhaiThongCasanovaMember("Beer", 777775000,0,9999999));
-
-        this.getStock().add(new Item("Jelly Beans", 10, 10000));
+        this.getStock().add(new Item("JellyBeans", 10, 10000));
         this.getStock().add(new Item("Painkiller", 100, 500));
         this.getStock().add(new Item("Orange", 150, 10));
-        this.getStock().add(new Item("Coconut Milk", 300, 30));
+        this.getStock().add(new Item("CoconutMilk", 300, 30));
         this.setStoreMoney(storeMoney);
+
+        this.getMembers().add(new BasicMember("Barbie", 11111));
+        this.getMembers().get(0).getShoppingCart().add(new Item("LemonIceCream", 50, 1));
+
+        this.getMembers().add(new FundamentalMintMember("Oppenheimer", 22222, 0, 1000));
+        this.getMembers().get(1).getShoppingCart().add(new Item("LeNukeIceCream", 1, 25000));
+
+        this.getMembers().add(new PhaiThongCasanovaMember("Ken", 33333,5000,9999999));
+        this.getMembers().get(1).getShoppingCart().add(new Item("HorseIceCream", 9999, 30000));
+
+        this.getMembers().add(new StarvingStudentMember("Alan", 44444,0,5));
     }
 
 }

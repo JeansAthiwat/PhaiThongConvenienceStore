@@ -38,9 +38,6 @@ public class BasicMember {
         this.getShoppingCart().clear();
     }
 
-
-
-
     @Override
     public String toString() {
         return "(Basic)" + " " + getMemberID() + "-" + getName();
