@@ -4,7 +4,6 @@ import logic.store.Item;
 import utils.ItemUtils;
 
 public class FundamentalMintMember extends BasicMember {
-    //TODO:
     private int point;
     protected double discountPercent; //?
     private int digitalMoney;
@@ -23,10 +22,8 @@ public class FundamentalMintMember extends BasicMember {
         this.discountPercent = 0.05;
     }
 
-    //TODO : override string and show digitalMoney left
     @Override
     public String toString() {
-        //return "(" + this.getClass().getSimpleName() + ")" + " ID:" + this.getMemberID() + " Name:" + this.getName() + " DigitalMoney in Account: " + this.getDigitalMoney() + " totalPoint: " + getPoint(); // might error
         return "(FundamentalMint)" + " " + getMemberID() + "-" + getName() + " DMoney: "
                 + getDigitalMoney() + " Pts: " + getPoint();
     }

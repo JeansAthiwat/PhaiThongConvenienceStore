@@ -171,9 +171,9 @@ public class AppController {
             member.checkout();
             int changeAmount = givenMoney - totalCartPrice;
             Store.getInstance().setStoreMoney(Store.getInstance().getStoreMoney() + totalCartPrice);
-            return "Paid for all item in Cart- Change to customer:" + changeAmount + "Baht";
+            return "Paid for all item in cart - Change to customer: " + changeAmount + " Baht";
         } else {
-            return "Not enough Money";
+            return "Not enough money!";
         }
     }
 
