@@ -75,7 +75,7 @@ public class Store {
 
     public boolean isMember(BasicMember otherMember) {
         for (BasicMember member : this.getMembers()) {
-            if (member.getMemberID() == otherMember.getMemberID()) {
+            if (member.equals(otherMember)) {
                 return true;
             }
         }
