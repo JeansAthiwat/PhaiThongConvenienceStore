@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class ItemUtils {
     public static int calculateTotalPrice(ArrayList<Item> itemsToBuy){
+        // calculate the totalPrice of Items without Discount. Use this to make sure totalCartPrice() are correct.
         int totalPrice = 0;
         for(Item item : itemsToBuy){
             totalPrice += item.getPrice()*item.getAmount();
@@ -15,6 +16,7 @@ public class ItemUtils {
     }
 
     public static int calculateTotalPrice(ArrayList<Item> itemsToBuy , double discountPercent){
+        // calculate the totalPrice of Items WITH Discount. Use this to make sure totalCartPrice() are correct.
         int totalPrice = calculateTotalPrice(itemsToBuy);
         return (int) Math.ceil(totalPrice*(1-discountPercent));
     }
