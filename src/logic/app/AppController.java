@@ -171,7 +171,7 @@ public class AppController {
             member.checkout();
             int changeAmount = givenMoney - totalCartPrice;
             Store.getInstance().setStoreMoney(Store.getInstance().getStoreMoney() + totalCartPrice);
-            return "Paid for all item in cart - Change to customer : " + changeAmount + " Baht";
+            return "Paid : " + totalCartPrice + " Baht - Change to customer : " + changeAmount + " Baht";
         } else {
             return "Not enough money!";
         }
@@ -183,7 +183,7 @@ public class AppController {
             member.setDigitalMoney(member.getDigitalMoney() - totalCartPrice);
             member.checkout(); // remove item from member's Cart and put to HistoryArray
             Store.getInstance().setStoreMoney(Store.getInstance().getStoreMoney() + totalCartPrice);
-            return "Paid for all item in cart - DigitalMoney Left : " + member.getDigitalMoney() + " Baht";
+            return "Paid : " + totalCartPrice + " Baht - DigitalMoney left : " + member.getDigitalMoney() + " Baht";
         } else {
             return "Not enough DigitalMoney in account";
         }
