@@ -8,13 +8,6 @@ public class FundamentalMintMember extends BasicMember {
     protected double discountPercent; //?
     private int digitalMoney;
 
-    public FundamentalMintMember(String name, int memberID) {
-        super(name, memberID);
-        this.setPoint(0);
-        this.setDigitalMoney(0);
-        this.discountPercent = 0.05;
-    }
-
     public FundamentalMintMember(String name, int memberID, int point, int digitalMoney) {
         super(name, memberID);
         this.setPoint(point);

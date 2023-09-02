@@ -62,6 +62,12 @@ public class BasicMemberTest {
     }
 
     @Test
+    void testGetTierName() {
+        BasicMember member = new BasicMember("LilJohn", 1);
+        assertEquals("Basic",member.getTierName());
+    }
+
+    @Test
     void testAddToPurchaseHistoryNewItem() {
         BasicMember member = new BasicMember("LilJohn", 1);
         assertTrue(member.getPurchaseHistory().isEmpty());
