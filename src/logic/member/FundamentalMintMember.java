@@ -3,7 +3,7 @@ package logic.member;
 import logic.store.Item;
 import utils.ItemUtils;
 
-public class FundamentalMintMember extends BasicMember {
+public class FundamentalMintMember extends BasicMember { //todo STUDENT: create this class from scratch
     private int point;
     protected double discountPercent; //?
     private int digitalMoney;

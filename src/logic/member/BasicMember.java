@@ -5,7 +5,7 @@ import utils.ItemUtils;
 
 import java.util.ArrayList;
 
-public class BasicMember {
+public class BasicMember { //todo STUDENT: Fill code in this class
     private final ArrayList<Item> purchaseHistory = new ArrayList<Item>();
     private final ArrayList<Item> shoppingCart = new ArrayList<Item>();
     private String name;

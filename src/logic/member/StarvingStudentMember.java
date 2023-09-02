@@ -2,7 +2,7 @@ package logic.member;
 
 import logic.store.Store;
 
-public class StarvingStudentMember extends FundamentalMintMember {
+public class StarvingStudentMember extends FundamentalMintMember { //todo STUDENT: create this class from scratch
     public static final int MAX_LOAN = 1920;
     int loan;
 

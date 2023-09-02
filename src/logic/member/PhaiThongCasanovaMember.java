@@ -3,7 +3,7 @@ package logic.member;
 import logic.store.Item;
 import logic.store.Store;
 
-public class PhaiThongCasanovaMember extends FundamentalMintMember {
+public class PhaiThongCasanovaMember extends FundamentalMintMember { //todo STUDENT: create this class from scratch
     public PhaiThongCasanovaMember(String name, int memberID, int point, int digitalMoney) {
         super(name, memberID, point, digitalMoney);
         this.discountPercent = 0.10;

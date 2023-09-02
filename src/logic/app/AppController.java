@@ -41,18 +41,6 @@ public class AppController {
         return out;
     }
 
-    public boolean memberExist(int memberID) {
-        boolean isExist = false;
-        ArrayList<BasicMember> members = Store.getInstance().getMembers();
-        for (BasicMember member : members) {
-            if (member.getMemberID() == memberID) {
-                isExist = true;
-                break;
-            }
-        }
-        return isExist;
-    }
-
     public String signUpMemberFlow(int member_type, String memberName, int memberID, int memberDigitalMoney) {
         if (memberID < 0) return "Invalid ID! (must be zero or positive int)";
         BasicMember member = null;
@@ -167,7 +155,9 @@ public class AppController {
         return "Cannot return loan because the member doesn't have enough DigitalMoney in account";
     }
 
-    public String checkOutWithCashFlow(BasicMember member, int givenMoney) { //todo STUDENT: Fill code in this method
+    public String checkOutWithCashFlow(BasicMember member, int givenMoney) {
+        //todo STUDENT: Fill code in this method
+
         int totalCartPrice = member.totalCartPrice();
         if (totalCartPrice <= givenMoney) {
             member.checkout();
@@ -179,7 +169,9 @@ public class AppController {
         }
     }
 
-    public String checkoutWithDigitalMoneyFlow(FundamentalMintMember member) { //todo STUDENT: Fill code in this method
+    public String checkoutWithDigitalMoneyFlow(FundamentalMintMember member) {
+        //todo STUDENT: Fill code in this method
+
         int totalCartPrice = member.totalCartPrice();
         if (totalCartPrice <= member.getDigitalMoney()) {
             member.setDigitalMoney(member.getDigitalMoney() - totalCartPrice);

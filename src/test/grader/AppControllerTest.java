@@ -4,7 +4,7 @@ import logic.app.AppController;
 import logic.member.BasicMember;
 import logic.member.FundamentalMintMember;
 import logic.member.PhaiThongCasanovaMember;
-import logic.member.StarvingStudentMember;
+
 import logic.store.Item;
 import logic.store.Store;
 import org.junit.jupiter.api.BeforeEach;

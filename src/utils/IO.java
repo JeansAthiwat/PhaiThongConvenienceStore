@@ -80,7 +80,7 @@ public class IO {
                         System.out.println("*Amount To Add :");
                         int amountToAdd = sc.nextInt();
                         System.out.println(ac.addItemToShoppingCartFlow(member, choice_stockItem, amountToAdd));
-                    } else if (choice_member == 1) {
+                    } else if (choice_member == 1) { // remove Items from cart
                         System.out.println("                  ---===Select Item To Remove===--- \n" + ac.showItemsInCart(member));
                         if (member.getShoppingCart().isEmpty()) {
                             System.out.println("No Item In The Shopping Cart!");
@@ -89,13 +89,13 @@ public class IO {
                         int choice_cartItem = choiceCheck(0, member.getShoppingCart().size() - 1);
                         System.out.println(ac.removeItemFromShoppingCartFlow(member, choice_cartItem));
                     }
-                    if (choice_member == 2) {
+                    if (choice_member == 2) { // CheckOut With Cash
                         System.out.println("*Input Customer Money : ");
                         int givenMoney = sc.nextInt();
                         System.out.println(ac.checkOutWithCashFlow(member, givenMoney));
                         break;
                     }
-                    if (choice_member == 3) {
+                    if (choice_member == 3) { // CheckOut With Digital Money
                         System.out.println(ac.checkoutWithDigitalMoneyFlow((FundamentalMintMember) member));
                         break;
                     }
@@ -117,7 +117,7 @@ public class IO {
                 System.out.println("*Enter Member's ID: ");
                 int memberID = sc.nextInt();
                 int memberDigitalMoney = 0;
-                if (choice_memberType > 0) {
+                if (choice_memberType > 0) { // if member is not BasicMember
                     System.out.println("*Enter Member's Starting DigitalMoney Amount: ");
                     memberDigitalMoney = sc.nextInt();
                 }
@@ -154,7 +154,7 @@ public class IO {
                 int choice_memberOption = choiceCheck(0, memberHighestChoice);
                 switch (choice_memberOption) {
                     case 0 -> {
-
+                        //continue with the loop
                     }
                     case 1 -> {
                         System.out.println(ac.deleteMemberFlow(member));
@@ -171,9 +171,9 @@ public class IO {
                         System.out.println(ac.convertPointFlow((FundamentalMintMember) member));
                     }
                     case 5 -> {
-                        if (memberHighestChoice == 5) {
+                        if (memberHighestChoice == 5) { // member is PhaiThongCasanova
                             System.out.println(ac.gachaFlow((PhaiThongCasanovaMember) member));
-                        } else {
+                        } else { // member is StarvingStudent
                             System.out.println("Current Total Loan: " + ((StarvingStudentMember) member).getLoan());
                             System.out.println("*Enter Loan Amount:");
                             int amount = sc.nextInt();
@@ -192,7 +192,7 @@ public class IO {
         System.out.println("=================================================================");
     }
 
-    private static int choiceCheck(int lowestChoice, int HighestChoice) {
+    private static int choiceCheck(int lowestChoice, int HighestChoice) { // make sure input stays in range of these numbers
         int choice = sc.nextInt();
         while (choice < lowestChoice || choice > HighestChoice) {
             System.out.println("Invalid Input! (try again) :");
