@@ -64,14 +64,29 @@ public class BasicMemberTest {
     @Test
     void testGetTierName() {
         BasicMember member = new BasicMember("LilJohn", 1);
-        assertEquals("Basic",member.getTierName());
+        assertEquals("Basic", member.getTierName());
+    }
+
+    @Test
+    void testTotalCartPrice() {
+        BasicMember member1 = new BasicMember("LilJohn", 1);
+        assertTrue(member1.getShoppingCart().isEmpty());
+        BasicMember member2 = new BasicMember("LilWayne", 2);
+        assertTrue(member2.getShoppingCart().isEmpty());
+        Item item1 = new Item("Item1", 200, 10);
+        Item item2 = new Item("Item2", 100, 4);
+        member2.getShoppingCart().add(item1);
+        member2.getShoppingCart().add(item2);
+
+        assertEquals(0, member1.totalCartPrice());
+        assertEquals(2400, member2.totalCartPrice());
     }
 
     @Test
     void testAddToPurchaseHistoryNewItem() {
         BasicMember member = new BasicMember("LilJohn", 1);
         assertTrue(member.getPurchaseHistory().isEmpty());
-        Item newItem = new Item("New Item",100, 15);
+        Item newItem = new Item("New Item", 100, 15);
         member.addToPurchaseHistory(newItem);
 
         assertTrue(member.getPurchaseHistory().contains(newItem));
@@ -81,13 +96,13 @@ public class BasicMemberTest {
     void testAddToPurchaseHistoryExistingItem() {
         BasicMember member = new BasicMember("LilJohn", 1);
         assertTrue(member.getPurchaseHistory().isEmpty());
-        Item existingItem1 = new Item("ExistingItem1",300, 100);
-        Item existingItem2 = new Item("ExistingItem2",300, 10);
+        Item existingItem1 = new Item("ExistingItem1", 300, 100);
+        Item existingItem2 = new Item("ExistingItem2", 300, 10);
         member.addToPurchaseHistory(existingItem1);
         member.addToPurchaseHistory(existingItem2);
         assertTrue(member.getPurchaseHistory().contains(existingItem1));
         assertTrue(member.getPurchaseHistory().contains(existingItem2));
-        Item updatedItem = new Item("ExistingItem2",450, 1);
+        Item updatedItem = new Item("ExistingItem2", 450, 1);
         member.addToPurchaseHistory(updatedItem);
 
         assertEquals(100, member.getPurchaseHistory().get(0).getAmount());
@@ -115,21 +130,6 @@ public class BasicMemberTest {
         assertTrue(member.getShoppingCart().isEmpty());
         assertTrue(member.getPurchaseHistory().contains(item1));
         assertTrue(member.getPurchaseHistory().contains(item2));
-    }
-
-    @Test
-    void testTotalCartPrice(){
-        BasicMember member1 = new BasicMember("LilJohn", 1);
-        assertTrue(member1.getShoppingCart().isEmpty());
-        BasicMember member2 = new BasicMember("LilWayne", 2);
-        assertTrue(member2.getShoppingCart().isEmpty());
-        Item item1 = new Item("Item1",200, 10);
-        Item item2 = new Item("Item2",100, 4);
-        member2.getShoppingCart().add(item1);
-        member2.getShoppingCart().add(item2);
-
-        assertEquals(0, member1.totalCartPrice());
-        assertEquals(2400, member2.totalCartPrice());
     }
 
 

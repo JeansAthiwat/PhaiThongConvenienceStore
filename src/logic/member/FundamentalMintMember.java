@@ -15,6 +15,13 @@ public class FundamentalMintMember extends BasicMember {
         this.discountPercent = 0.05;
     }
 
+    public void convertPoint() {
+        int totalPoint = this.getPoint();
+        int totalMoney = totalPoint / 100;
+        this.setPoint(this.getPoint() - totalMoney * 100);
+        this.setDigitalMoney(this.getDigitalMoney() + totalMoney);
+    }
+
     @Override
     public String toString() {
         return "(FundamentalMint)" + " " + getMemberID() + "-" + getName() + " DMoney: "
@@ -22,13 +29,13 @@ public class FundamentalMintMember extends BasicMember {
     }
 
     @Override
-    public int totalCartPrice() {
-        return ItemUtils.calculateTotalPrice(this.getShoppingCart(), this.getDiscountPercent());
+    public String getTierName() {
+        return "FundamentalMint";
     }
 
     @Override
-    public String getTierName() {
-        return "FundamentalMint";
+    public int totalCartPrice() {
+        return ItemUtils.calculateTotalPrice(this.getShoppingCart(), this.getDiscountPercent());
     }
 
     @Override
@@ -38,12 +45,6 @@ public class FundamentalMintMember extends BasicMember {
         super.checkout();
     }
 
-    public void convertPoint() {
-        int totalPoint = this.getPoint();
-        int totalMoney = totalPoint / 100;
-        this.setPoint(this.getPoint() - totalMoney * 100);
-        this.setDigitalMoney(this.getDigitalMoney() + totalMoney);
-    }
 
     public int getPoint() {
         return point;

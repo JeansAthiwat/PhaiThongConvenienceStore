@@ -16,6 +16,9 @@ public class BasicMember {
         this.setMemberID(memberID);
     }
 
+    public int totalCartPrice() {
+        return ItemUtils.calculateTotalPrice(this.getShoppingCart());
+    }
     public void addToPurchaseHistory(Item item) {
         if (!getPurchaseHistory().isEmpty()) {
             for (Item historyItem : this.getPurchaseHistory()) {
@@ -35,9 +38,8 @@ public class BasicMember {
         this.getShoppingCart().clear();
     }
 
-    public int totalCartPrice() {
-        return ItemUtils.calculateTotalPrice(this.getShoppingCart());
-    }
+
+
 
     @Override
     public String toString() {
@@ -47,7 +49,7 @@ public class BasicMember {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof BasicMember)) return false;
         BasicMember that = (BasicMember) o;
         return getMemberID() == that.getMemberID();
     }
