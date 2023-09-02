@@ -20,13 +20,13 @@ public class Store {
 
     public static Store getInstance() {
         if (instance == null) {
-            instance = new Store(100);
+            instance = new Store(8000);
         }
         return instance;
     }
 
     public Store(int storeMoney) {
-        this.initializeStore();
+        this.initializeStore(storeMoney);
     }
 
     public BasicMember getMemberByID(int memberID) {
@@ -114,7 +114,7 @@ public class Store {
         this.storeMoney = storeMoney;
     }
 
-    private void initializeStore() {
+    private void initializeStore(int storeMoney) {
         //TODO : add each type of customer
         this.getMembers().add(new BasicMember("NormieJeans", 1));
         this.getMembers().get(0).getShoppingCart().add(new Item("GT 560", 50, 1));

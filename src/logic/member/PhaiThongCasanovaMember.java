@@ -30,6 +30,9 @@ public class PhaiThongCasanovaMember extends FundamentalMintMember {
 
 
     public Item giveRandomItemFromStore() { // randomly gives one item in the store to this guy for free
+        if(this.getPoint() < 1000){
+            return null;
+        }
         Item item = Store.getInstance().takeRandomItemFromStock();
         if(item == null){
             return null;

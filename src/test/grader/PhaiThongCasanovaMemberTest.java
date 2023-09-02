@@ -51,7 +51,7 @@ public class PhaiThongCasanovaMemberTest {
 
     @Test
     void testGetTierName() {
-        PhaiThongCasanovaMember member = new PhaiThongCasanovaMember("CasanovaJohn", 1,0,0);
+        PhaiThongCasanovaMember member = new PhaiThongCasanovaMember("CasanovaJohn", 1, 0, 0);
         assertEquals("PhaiThongCasanova", member.getTierName());
     }
 
@@ -80,21 +80,40 @@ public class PhaiThongCasanovaMemberTest {
     void testGetDiscountPercent() {
         PhaiThongCasanovaMember member = new PhaiThongCasanovaMember("LilJohn", 8, 0, 1000);
 
-        assertEquals(0.10,member.getDiscountPercent());
+        assertEquals(0.10, member.getDiscountPercent());
     }
 
     @Test
     void testGiveRandomItemFromStore() {
         Store store = new Store(5000);
 
-        Item item1 = new Item("Item1", 200, 10);
-        Item item2 = new Item("Item2", 100, 4);
-        Item item3 = new Item("Item3", 1, 7);
-
-        PhaiThongCasanovaMember member1 = new PhaiThongCasanovaMember("LilJohn", 1, 0, 1000);
-        PhaiThongCasanovaMember member2 = new PhaiThongCasanovaMember("LilWayne", 2, 10000, 2000);
+        Item item1 = new Item("Item1", 200, 1);
+        Item item2 = new Item("Item2", 100, 1);
+        Item item3 = new Item("Item3", 3, 1);
+        Item item4 = new Item("Item4", 4, 1);
 
 
+        PhaiThongCasanovaMember member1 = new PhaiThongCasanovaMember("LilWayne", 1, 10000, 2000);
+        assertTrue(member1.getPurchaseHistory().isEmpty());
+        PhaiThongCasanovaMember member2 = new PhaiThongCasanovaMember("LilPain", 2, 999, 2000);
+        PhaiThongCasanovaMember member3 = new PhaiThongCasanovaMember("LilJohn", 3, 3333, 1000);
+
+        System.out.println(store.getStoreMoney());
+        member1.giveRandomItemFromStore();
+
+        store.addItemToStock(item1);
+        store.addItemToStock(item2);
+        store.addItemToStock(item3);
+        store.addItemToStock(item4);
+
+        for(int i = 0; i < 4;i++){
+            member2.giveRandomItemFromStore();
+            member3.giveRandomItemFromStore();
+        }
+        System.out.println(member1.getPurchaseHistory());
+
+        assertTrue(member1.getPurchaseHistory().isEmpty());
+        assertEquals(3,member2.getPurchaseHistory().size());
 
 
 
