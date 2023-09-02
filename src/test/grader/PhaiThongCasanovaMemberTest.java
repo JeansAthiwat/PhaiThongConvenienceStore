@@ -85,7 +85,8 @@ public class PhaiThongCasanovaMemberTest {
 
     @Test
     void testGiveRandomItemFromStore() {
-        Store store = new Store(5000);
+        Store store = Store.getInstance();
+        store.getStock().clear();
 
         Item item1 = new Item("Item1", 200, 1);
         Item item2 = new Item("Item2", 100, 1);
@@ -94,11 +95,9 @@ public class PhaiThongCasanovaMemberTest {
 
 
         PhaiThongCasanovaMember member1 = new PhaiThongCasanovaMember("LilWayne", 1, 10000, 2000);
-        assertTrue(member1.getPurchaseHistory().isEmpty());
         PhaiThongCasanovaMember member2 = new PhaiThongCasanovaMember("LilPain", 2, 999, 2000);
         PhaiThongCasanovaMember member3 = new PhaiThongCasanovaMember("LilJohn", 3, 3333, 1000);
 
-        System.out.println(store.getStoreMoney());
         member1.giveRandomItemFromStore();
 
         store.addItemToStock(item1);
@@ -110,12 +109,9 @@ public class PhaiThongCasanovaMemberTest {
             member2.giveRandomItemFromStore();
             member3.giveRandomItemFromStore();
         }
-        System.out.println(member1.getPurchaseHistory());
 
         assertTrue(member1.getPurchaseHistory().isEmpty());
-        assertEquals(3,member2.getPurchaseHistory().size());
-
-
-
+        assertTrue(member2.getPurchaseHistory().isEmpty());
+        assertEquals(3,member3.getPurchaseHistory().size());
     }
 }

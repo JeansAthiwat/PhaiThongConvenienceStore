@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="23232d4f-9817-4c64-a82e-dafb0434cf9b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/app/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/member/PhaiThongCasanovaMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/PhaiThongCasanovaMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/store/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/store/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/grader/PhaiThongCasanovaMemberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/grader/PhaiThongCasanovaMemberTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +54,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.PhaiThongCasanovaMemberTest.testGiveRandomItemFromStore">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="application.Main" />
       <module name="PhaiThongConvenienceStore" />
@@ -137,8 +134,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.PhaiThongCasanovaMemberTest.testGiveRandomItemFromStore" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.BasicMemberTest.testAddToPurchaseHistoryExistingItem" />
         <item itemvalue="JUnit.PhaiThongCasanovaMemberTest.testConvertPoint" />
         <item itemvalue="JUnit.FundamentalMintMemberTest.testSetDigitalMoney" />
@@ -158,7 +155,7 @@
       <workItem from="1693548104870" duration="7528000" />
       <workItem from="1693569842206" duration="8908000" />
       <workItem from="1693627171254" duration="1567000" />
-      <workItem from="1693650882040" duration="8926000" />
+      <workItem from="1693650882040" duration="9151000" />
     </task>
     <servers />
   </component>
