@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="23232d4f-9817-4c64-a82e-dafb0434cf9b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/grader/PhaiThongCasanovaMemberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/grader/PhaiThongCasanovaMemberTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/member/StarvingStudentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/member/StarvingStudentMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/store/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/store/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/grader/StarvingStudentMemberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/grader/StarvingStudentMemberTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +56,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.PhaiThongCasanovaMemberTest.testGiveRandomItemFromStore">
+  <component name="RunManager" selected="JUnit.StarvingStudentMemberTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="application.Main" />
       <module name="PhaiThongConvenienceStore" />
@@ -79,22 +81,6 @@
       <option name="PACKAGE_NAME" value="test.grader" />
       <option name="MAIN_CLASS_NAME" value="test.grader.BasicMemberTest" />
       <option name="METHOD_NAME" value="testAddToPurchaseHistoryExistingItem" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FundamentalMintMemberTest.testSetDigitalMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PhaiThongConvenienceStore" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.grader.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.grader" />
-      <option name="MAIN_CLASS_NAME" value="test.grader.FundamentalMintMemberTest" />
-      <option name="METHOD_NAME" value="testSetDigitalMoney" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -132,13 +118,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StarvingStudentMemberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PhaiThongConvenienceStore" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.grader.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.grader" />
+      <option name="MAIN_CLASS_NAME" value="test.grader.StarvingStudentMemberTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PhaiThongCasanovaMemberTest.testGiveRandomItemFromStore" />
+        <item itemvalue="JUnit.StarvingStudentMemberTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.PhaiThongCasanovaMemberTest.testGiveRandomItemFromStore" />
         <item itemvalue="JUnit.BasicMemberTest.testAddToPurchaseHistoryExistingItem" />
         <item itemvalue="JUnit.PhaiThongCasanovaMemberTest.testConvertPoint" />
-        <item itemvalue="JUnit.FundamentalMintMemberTest.testSetDigitalMoney" />
       </list>
     </recent_temporary>
   </component>
@@ -155,7 +156,7 @@
       <workItem from="1693548104870" duration="7528000" />
       <workItem from="1693569842206" duration="8908000" />
       <workItem from="1693627171254" duration="1567000" />
-      <workItem from="1693650882040" duration="9151000" />
+      <workItem from="1693650882040" duration="12607000" />
     </task>
     <servers />
   </component>

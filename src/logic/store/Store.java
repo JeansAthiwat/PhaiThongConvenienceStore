@@ -115,13 +115,12 @@ public class Store {
     }
 
     private void initializeStore(int storeMoney) {
-        //TODO : add each type of customer
         this.getMembers().add(new BasicMember("NormieJeans", 1));
         this.getMembers().get(0).getShoppingCart().add(new Item("GT 560", 50, 1));
         this.getMembers().add(new FundamentalMintMember("CHADJeans", 2, 0, 1000));
         this.getMembers().get(1).getShoppingCart().add(new Item("RTX4090", 5, 10));
 
-        this.getMembers().add(new StarvingStudentMember("Faro", 555445,0,5));
+        this.getMembers().add(new StarvingStudentMember("Soyjak", 555445,0,5));
         this.getMembers().add(new PhaiThongCasanovaMember("Peet", 123456,5000,9999999));
         this.getMembers().add(new PhaiThongCasanovaMember("Beer", 777775000,0,9999999));
 

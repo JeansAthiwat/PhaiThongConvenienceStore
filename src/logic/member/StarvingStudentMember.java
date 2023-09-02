@@ -13,6 +13,14 @@ public class StarvingStudentMember extends FundamentalMintMember {
     }
 
     @Override
+    public void convertPoint() {
+        int totalPoint = this.getPoint();
+        int totalMoney = totalPoint / 75;
+        this.setPoint(this.getPoint() - totalMoney * 75);
+        this.setDigitalMoney(this.getDigitalMoney() + totalMoney);
+    }
+
+    @Override
     public String toString() {
         return "(StarvingStudent)" + " " + getMemberID() + "-" + getName() + " DMoney: "
                 + getDigitalMoney() + " Pts: " + getPoint() + " Loans: " + getLoan();
@@ -24,13 +32,6 @@ public class StarvingStudentMember extends FundamentalMintMember {
         return "StarvingStudent";
     }
 
-    @Override
-    public void convertPoint() {
-        int totalPoint = this.getPoint();
-        int totalMoney = totalPoint / 75;
-        this.setPoint(this.getPoint() - totalMoney * 75);
-        this.setDigitalMoney(this.getDigitalMoney() + totalMoney);
-    }
 
     public boolean loanMoney(int amount) {
         if ((this.getLoan() + amount <= MAX_LOAN) && (Store.getInstance().getStoreMoney() >= amount)) {
@@ -44,6 +45,9 @@ public class StarvingStudentMember extends FundamentalMintMember {
     }
 
     public boolean returnLoan(int amount) {
+        if(amount >= this.getLoan()){ // if input amount is more than
+            amount = this.getLoan();
+        }
         if (this.getDigitalMoney() >= amount) {
             Store store = Store.getInstance();
             store.setStoreMoney(store.getStoreMoney() + amount);
@@ -61,6 +65,9 @@ public class StarvingStudentMember extends FundamentalMintMember {
     public void setLoan(int loan) {
         if (loan < 0) {
             loan = 0;
+        }
+        if(loan > MAX_LOAN){
+            loan = MAX_LOAN;
         }
         this.loan = loan;
     }
