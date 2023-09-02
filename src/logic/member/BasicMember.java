@@ -16,19 +16,10 @@ public class BasicMember {
         this.setMemberID(memberID);
     }
 
-    public void checkout() {
-        for (Item item : this.getShoppingCart()) {
-            this.addToPurchaseHistory(item);
-        }
-        this.getShoppingCart().clear();
-    }
-
     public void addToPurchaseHistory(Item item) {
         if (!getPurchaseHistory().isEmpty()) {
             for (Item historyItem : this.getPurchaseHistory()) {
-                System.out.println("nani nani");
                 if (historyItem.equals(item)) {
-                    System.out.println("if");
                     historyItem.setAmount(historyItem.getAmount() + item.getAmount());
                     return;
                 }
@@ -37,8 +28,28 @@ public class BasicMember {
         this.getPurchaseHistory().add(item);
     }
 
+    public void checkout() {
+        for (Item item : this.getShoppingCart()) {
+            this.addToPurchaseHistory(item);
+        }
+        this.getShoppingCart().clear();
+    }
+
     public int totalCartPrice() {
         return ItemUtils.calculateTotalPrice(this.getShoppingCart());
+    }
+
+    @Override
+    public String toString() {
+        return "(Basic)" + " " + getMemberID() + "-" + getName();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BasicMember that = (BasicMember) o;
+        return getMemberID() == that.getMemberID();
     }
 
     public ArrayList<Item> getPurchaseHistory() {
@@ -49,10 +60,6 @@ public class BasicMember {
         return shoppingCart;
     }
 
-    @Override
-    public String toString() {
-        return "(Basic)" + " " + getMemberID() + "-" + getName();
-    }
 
     public String getTierName() {
         return "Basic";
@@ -64,7 +71,7 @@ public class BasicMember {
 
     public void setName(String name) {
         if (name.isBlank()) {
-            name = "UnknownCustomer";
+            name = "UnknownMember";
         }
         this.name = name;
     }
@@ -78,14 +85,6 @@ public class BasicMember {
             memberID = 0;
         }
         this.memberID = memberID;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BasicMember that = (BasicMember) o;
-        return getMemberID() == that.getMemberID();
     }
 
 }
