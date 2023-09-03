@@ -1,9 +1,9 @@
 package logic.store;
 
-import logic.member.BasicMember;
-import logic.member.FundamentalMintMember;
-import logic.member.PhaiThongCasanovaMember;
-import logic.member.StarvingStudentMember;
+import logic.members.BasicMember;
+import logic.members.FundamentalMintMember;
+import logic.members.PhaiThongCasanovaMember;
+import logic.members.StarvingStudentMember;
 
 import java.util.ArrayList;
 

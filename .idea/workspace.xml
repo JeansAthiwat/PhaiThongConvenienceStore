@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="23232d4f-9817-4c64-a82e-dafb0434cf9b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/app/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/member/BasicMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/members/BasicMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/member/FundamentalMintMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/members/FundamentalMintMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/member/PhaiThongCasanovaMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/members/PhaiThongCasanovaMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/member/StarvingStudentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/members/StarvingStudentMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/store/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/store/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/grader/AppControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/grader/AppControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/grader/BasicMemberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/grader/BasicMemberTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/grader/FundamentalMintMemberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/grader/FundamentalMintMemberTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/grader/PhaiThongCasanovaMemberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/grader/PhaiThongCasanovaMemberTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/grader/StarvingStudentMemberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/grader/StarvingStudentMemberTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/IO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/ItemUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ItemUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,27 +47,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Acer/IdeaProjects/PhaiThongConvenienceStore",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Acer/IdeaProjects/PhaiThongConvenienceStore&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.AppControllerTest.testCheckOutWithCashFlowNotEnoughCash">
+}</component>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="application.Main" />
       <module name="PhaiThongConvenienceStore" />
@@ -134,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.AppControllerTest.testCheckOutWithCashFlowNotEnoughCash" />
         <item itemvalue="JUnit.AppControllerTest" />
         <item itemvalue="JUnit.AppControllerTest.testCheckOutDigitalMoneyFlowNotEnoughDMoney" />
         <item itemvalue="JUnit.AppControllerTest.testCheckOutWithCashFlow1" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -155,7 +167,8 @@
       <workItem from="1693548104870" duration="7528000" />
       <workItem from="1693569842206" duration="8908000" />
       <workItem from="1693627171254" duration="1567000" />
-      <workItem from="1693650882040" duration="16704000" />
+      <workItem from="1693650882040" duration="16721000" />
+      <workItem from="1693725921267" duration="10295000" />
     </task>
     <servers />
   </component>

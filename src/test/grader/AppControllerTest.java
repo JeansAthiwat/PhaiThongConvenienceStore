@@ -1,9 +1,9 @@
 package test.grader;
 
 import logic.app.AppController;
-import logic.member.BasicMember;
-import logic.member.FundamentalMintMember;
-import logic.member.PhaiThongCasanovaMember;
+import logic.members.BasicMember;
+import logic.members.FundamentalMintMember;
+import logic.members.PhaiThongCasanovaMember;
 
 import logic.store.Item;
 import logic.store.Store;

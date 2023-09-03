@@ -1,11 +1,10 @@
 package utils;
 
 import logic.app.AppController;
-import logic.member.BasicMember;
-import logic.member.FundamentalMintMember;
-import logic.member.PhaiThongCasanovaMember;
-import logic.member.StarvingStudentMember;
-import logic.store.Item;
+import logic.members.BasicMember;
+import logic.members.FundamentalMintMember;
+import logic.members.PhaiThongCasanovaMember;
+import logic.members.StarvingStudentMember;
 import logic.store.Store;
 
 import java.util.ArrayList;

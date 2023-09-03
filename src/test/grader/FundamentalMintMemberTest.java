@@ -1,7 +1,7 @@
 package test.grader;
 
-import logic.member.BasicMember;
-import logic.member.FundamentalMintMember;
+import logic.members.BasicMember;
+import logic.members.FundamentalMintMember;
 import logic.store.Item;
 import org.junit.jupiter.api.Test;
 

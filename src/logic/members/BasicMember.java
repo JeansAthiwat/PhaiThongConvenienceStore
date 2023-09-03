@@ -1,4 +1,4 @@
-package logic.member;
+package logic.members;
 
 import logic.store.Item;
 import utils.ItemUtils;
@@ -19,6 +19,7 @@ public class BasicMember { //todo STUDENT: Fill code in this class
     public int totalCartPrice() {
         return ItemUtils.calculateTotalPrice(this.getShoppingCart());
     }
+
     public void addToPurchaseHistory(Item item) {
         if (!getPurchaseHistory().isEmpty()) {
             for (Item historyItem : this.getPurchaseHistory()) {
@@ -40,7 +41,7 @@ public class BasicMember { //todo STUDENT: Fill code in this class
 
     @Override
     public String toString() {
-        return "(Basic)" + " " + getMemberID() + "-" + getName();
+        return "(" + getTierName() + ")" + " " + getMemberID() + "-" + getName();
     }
 
     @Override
@@ -51,6 +52,10 @@ public class BasicMember { //todo STUDENT: Fill code in this class
         return getMemberID() == that.getMemberID();
     }
 
+    public String getTierName() {
+        return "Basic";
+    }
+
     public ArrayList<Item> getPurchaseHistory() {
         return purchaseHistory;
     }
@@ -59,10 +64,6 @@ public class BasicMember { //todo STUDENT: Fill code in this class
         return shoppingCart;
     }
 
-
-    public String getTierName() {
-        return "Basic";
-    }
 
     public String getName() {
         return name;

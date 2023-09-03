@@ -1,4 +1,4 @@
-package logic.member;
+package logic.members;
 
 import logic.store.Store;
 
@@ -22,7 +22,7 @@ public class StarvingStudentMember extends FundamentalMintMember { //todo STUDEN
 
     @Override
     public String toString() {
-        return "(StarvingStudent)" + " " + getMemberID() + "-" + getName() + " DMoney: "
+        return "(" + getTierName() + ")" + " " + getMemberID() + "-" + getName() + " DMoney: "
                 + getDigitalMoney() + " Pts: " + getPoint() + " Loans: " + getLoan();
 
     }

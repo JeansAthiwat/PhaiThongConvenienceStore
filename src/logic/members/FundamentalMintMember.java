@@ -1,11 +1,10 @@
-package logic.member;
+package logic.members;
 
-import logic.store.Item;
 import utils.ItemUtils;
 
 public class FundamentalMintMember extends BasicMember { //todo STUDENT: create this class from scratch
     private int point;
-    protected double discountPercent; //?
+    protected double discountPercent;
     private int digitalMoney;
 
     public FundamentalMintMember(String name, int memberID, int point, int digitalMoney) {
@@ -24,7 +23,7 @@ public class FundamentalMintMember extends BasicMember { //todo STUDENT: create 
 
     @Override
     public String toString() {
-        return "(FundamentalMint)" + " " + getMemberID() + "-" + getName() + " DMoney: "
+        return "(" + getTierName() + ")" + " " + getMemberID() + "-" + getName() + " DMoney: "
                 + getDigitalMoney() + " Pts: " + getPoint();
     }
 

@@ -3,7 +3,7 @@ package test.grader;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import logic.member.BasicMember;
+import logic.members.BasicMember;
 import logic.store.Item;
 import org.junit.jupiter.api.Test;
 
