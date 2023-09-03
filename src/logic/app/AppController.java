@@ -156,8 +156,6 @@ public class AppController {
     }
 
     public String checkOutWithCashFlow(BasicMember member, int givenMoney) {
-        //todo STUDENT: Fill code in this method
-
         int totalCartPrice = member.totalCartPrice();
         if (totalCartPrice <= givenMoney) {
             member.checkout();
@@ -170,8 +168,6 @@ public class AppController {
     }
 
     public String checkoutWithDigitalMoneyFlow(FundamentalMintMember member) {
-        //todo STUDENT: Fill code in this method
-
         int totalCartPrice = member.totalCartPrice();
         if (totalCartPrice <= member.getDigitalMoney()) {
             member.setDigitalMoney(member.getDigitalMoney() - totalCartPrice);
